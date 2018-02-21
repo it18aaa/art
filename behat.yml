@@ -1,0 +1,13 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://en.wikipedia.org
+      goutte: ~
+      browser_name: 'chrome'
+      selenium2:
+        #wd_host: http://127.0.0.1:4444/wd/hub
+        capabilities:
+          browserName: "chrome"
+          browser: "chrome"
+          version: 64
+          marionette: null
