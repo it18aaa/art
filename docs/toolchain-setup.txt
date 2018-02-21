@@ -1,0 +1,161 @@
+framework & toolchain set up
+
+laravel new <<NAME>>
+cd <<NAME>>
+
+php artisan serve  --- to run php webserver on port 8000
+
+
+& modify apache vhost & windows\system32\drivers\etc\hosts file
+
+
+Apache VHOST  - apache\conf\extra\httpd-vhosts.conf
+============
+
+<VirtualHost art1:80>
+	DocumentRoot "C:/laravel/art1/public"
+	DirectoryIndex index.php  
+	<Directory "C:/laravel/art1/public">
+        	Options All
+        	AllowOverride All
+        	Order Allow,Deny
+        	Allow from all
+		      Require all granted
+    	</Directory>
+</VirtualHost>
+
+
+
+Version control
+===============
+
+git init    # initialise local repository
+git add .   # stage everything
+
+* add remote repository on git hub
+git remote add origin https://github.com/it18aaa/art.git
+
+
+* comit local 
+git commit -m "commiting stuff to repository"
+
+* commit to remote repository
+git push -u origin master
+git push
+
+* check for changes on our github repo and pull down any new changes
+git pull origin master
+
+* check for differences
+git diff HEAD
+
+* check differences between staged files and repo
+git diff --staged
+
+git status  # see what has changed and what is staged.
+
+*** branching
+
+git branch  new-branch  <-make a new branch
+git branch              <- view the different branches
+git checkout new-branch <- switch branches
+
+~ do some work, then, git add , git commit etc..
+
+git checkout master   <-- switch to original master branch
+git merge new-branch  <-- merge the checked out branch with named branch
+
+git branch -d new-branch  <-- delete a branch
+
+
+
+
+
+
+Testing
+=======
+
+Dusk
+----
+
+* installation:
+	composer require --dev lavavel/dusk
+	php artisan dusk:install
+
+* to run:
+
+	php artisan dusk      
+
+Behat
+-----
+
+composer require --dev behat/behat behat/mink behat/mink-extension 
+***** composer require --dev laracasts/behat-laravel-extension symfony/dependency-inject:"3.*"  <<--- not needed????
+composer require --dev behat/mink-goutte-driver
+composre require --dev behat/selenium2-driver
+
+* download selenium standalone server
+* chromedriver.exe required in same dir
+
+* create behat.yml in route of project
+
+e.g. 
+
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://en.wikipedia.org
+      goutte: ~
+      browser_name: 'chrome'
+      selenium2:
+        #wd_host: http://127.0.0.1:4444/wd/hub
+        capabilities:
+          browserName: "chrome"
+          browser: "chrome"
+          version: 64
+          marionette: null
+
+
+
+* initialise behat
+
+vendor\bin\behat --init
+
+
+... this sets up FeatureContext.php  
+
+should set it to extend MinkContext
+
+
+
+* test it works
+
+vendor/bin/behat --dl
+
+* run tests
+
+vendor/bin/behat    
+
+
+
+cheat sheet!
+-=-=-=-=-=-=-
+
+vendor\bin\phpunit    #to run unit and feature tests
+vendor\bin\behat      #to run acceptance tests
+php artisan dusk      #to run laravel acceptance tests
+
+
+Database migrations
+===================
+
+php artisan migrate
+
+
+Authentication and authorisation
+================================
+
+php artisan make:auth
+php artisan migrate
+
+
