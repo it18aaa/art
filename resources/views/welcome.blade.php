@@ -79,7 +79,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Artogalleria
+				ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE 
+                    
                 </div>
                 
 				<div class="links">
