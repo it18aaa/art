@@ -81,8 +81,10 @@
                 <div class="title m-b-md">
                     Artogalleria
                 </div>
-
-                <div class="links">
+                
+				<div class="links">
+				<a href="stuff">things</a>
+				<a href="stuff">stuff</a>
                 </div>
             </div>
         </div>
