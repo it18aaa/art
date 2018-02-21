@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Mod Artem</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -79,8 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-				ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE ARSE 
-                    
+			m&nbsp;o&nbsp;d&nbsp;&nbsp; a&nbsp;r&nbsp;t&nbsp;e&nbsp;m
                 </div>
                 
 				<div class="links">
