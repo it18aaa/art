@@ -36,7 +36,7 @@
 
             <div class="content">
                 <div class="title">
-			@Rt
+			art
                 </div>
                 </div class="subtext"></div>
 				<div class="links">
