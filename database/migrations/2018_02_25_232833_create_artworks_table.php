@@ -15,11 +15,11 @@ class CreateArtworksTable extends Migration
     {
         Schema::create('artworks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->binary('image');
+            $table->string('name');            
             $table->integer('price');
             $table->boolean('onsale');
-            $table->boolean('pricepublic');
+            $table->boolean('pricepublic');        
+            $table->unsignedInteger('artistid')    ;
             $table->timestamps();
         });
     }
