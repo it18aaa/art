@@ -2,30 +2,35 @@
 
 namespace Tests\Browser;
 
-use Tests\DuskTestCase;
+use App\Artwork;
 use Laravel\Dusk\Browser;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\DuskTestCase;
 
-class ExampleTest extends DuskTestCase
+class ViewListOfArtworkTest extends DuskTestCase
 {
     /**
      * A basic browser test example.
      *
      * @return void
      */
-    public function ViewListOfArtworkTest()
+    public function testViewListOfArtwork()
     {
-        /* create world 
-        *
-        *  populate the database with known artwork
-        *  load the front page and check to see whether
-        *  items on the list are visible
-        *
-        */
+        /* create world
+         *
+         *  populate the database with known artwork and then
+         *  load the front page and check to see whether
+         *  items on the list are visible
+         *
+         */
+
+        for ($index = 0; $index < 20; $index++) {
+            $art = factory(Artwork::class)->create();
+        }
+        //print_r($art);
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('@Rt');
+                ->assertSee('@Rt');
         });
 
         $this->browse(function (Browser $browser) {
@@ -35,7 +40,6 @@ class ExampleTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/')->assertSee('stuff');
-
         });
     }
 }
