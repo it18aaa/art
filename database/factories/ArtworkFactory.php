@@ -7,9 +7,9 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
     return [
         //
         'name' => $faker->word,      
-        'price' => $faker->randomNumber(5),
+        'price' => $faker->numberBetween(50,10000),
         'onsale' => $faker->boolean,
         'pricepublic' => $faker->boolean,
-        'artistid' => $faker->numberBetween(0,19)
+        'artist_id' => $faker->numberBetween(0,19)
     ];
 });
