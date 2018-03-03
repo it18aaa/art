@@ -2,24 +2,24 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\CreateTestWorld;
-use App\Artwork;
 use App\Artist;
+use App\Artwork;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
 
 class ArtistTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
-
-    public function setUp() {
+    private $world;
+    public function setUp()
+    {
         parent::setUp();
-       
-        CreateTestWorld::create();
+    }
 
-        
+    public function tearDown()
+    {
+        parent::tearDown();
     }
 
     /**
@@ -27,23 +27,36 @@ class ArtistTest extends TestCase
      *
      * @return void
      */
-    public function testArtistArtworks()    
+    public function testArtistArtworks()
     {
-       // pick some artists
-       $artists = Artist::get();
+        // create an artist
+        $artist = new Artist;
+        $artist->name = "Biff Johnson";
+        $artist->save();
 
-       dd($artists);
+        // create two artworks
+        $artwork1 = new Artwork;
+        $artwork1->name = "Jupiter";
+        $artwork1->artist_id = $artist->id;
+        $artwork1->price = 999;
+        $artwork1->pricepublic = true;
+        $artwork1->onsale = true;
+        $artwork1->save();
 
-       $this->assertTrue(false);
+        $artwork2 = new Artwork;
+        $artwork2->name = "Saturn";
+        $artwork2->artist_id = $artist->id;
+        $artwork2->price = 444;
+        $artwork2->pricepublic = true;
+        $artwork2->onsale = true;
+        $artwork2->save();
+
+        $stuff = $artist->artworks;
+
+        $testpiece = $stuff[0];
+        $this->assertTrue($stuff->contains($artwork1));
+        $this->assertTrue($stuff->contains($artwork2));
+        $this->assertTrue($artwork1->name == $testpiece->name);
     }
-
-
-
-    public function tearDown() {
-        CreateTestWorld::destroy();
-        parent::tearDown();
-    }
-
-    
 
 }
