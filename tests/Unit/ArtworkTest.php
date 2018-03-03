@@ -7,7 +7,7 @@ use App\Artwork;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class ArtistTest extends TestCase
+class ArtworkTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -27,17 +27,17 @@ class ArtistTest extends TestCase
      *
      * @return void
      */
-    public function testArtistReturnsArtworks()
+    public function testArtworkReturnsArtist()
     {
-        // create the world ...
+        // create world...
         // create an artist
         $artist = new Artist;
-        $artist->name = "Biff Johnson";
+        $artist->name = "Bingo Jefferson";
         $artist->save();
 
         // create two artworks
         $artwork1 = new Artwork;
-        $artwork1->name = "Jupiter";
+        $artwork1->name = "Moon";
         $artwork1->artist_id = $artist->id;
         $artwork1->price = 999;
         $artwork1->pricepublic = true;
@@ -45,25 +45,23 @@ class ArtistTest extends TestCase
         $artwork1->save();
 
         $artwork2 = new Artwork;
-        $artwork2->name = "Saturn";
+        $artwork2->name = "Pluto";
         $artwork2->artist_id = $artist->id;
         $artwork2->price = 444;
         $artwork2->pricepublic = true;
         $artwork2->onsale = true;
         $artwork2->save();
 
-        // use the method
-        $rtnArtworks = $artist->artworks;
+        // run the method
 
-        // test the returned collection contains the artworks above
-        $this->assertTrue($rtnArtworks->contains($artwork1));
-        $this->assertTrue($rtnArtworks->contains($artwork2));
+        $rtnArtist1 = $artwork1->artist;
+        $rtnArtist2 = $artwork2->artist;
 
-        // extract a piece of artwork
-        $testpiece = $rtnArtworks[0];
+        //returned  artists the same as originally set up?
 
-        // the names should match
-        $this->assertTrue($artwork1->name == $testpiece->name);
+        $this->assertTrue($rtnArtist1->name == $artist->name);
+        $this->assertTrue($rtnArtist2->name == $artist->name);
+
     }
 
 }
