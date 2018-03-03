@@ -5,11 +5,13 @@ namespace Tests\Unit;
 use App\Artist;
 use App\Artwork;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class ArtistTest extends TestCase
 {
-    use DatabaseTransactions;
+    //use DatabaseTransactions;
+    use DatabaseMigrations;
 
     private $world;
     public function setUp()

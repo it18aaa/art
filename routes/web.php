@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'GalleryController@indexPage');
+Route::get('/artwork/{id}', 'GalleryController@artwork');
 

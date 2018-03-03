@@ -5,11 +5,13 @@ namespace Tests\Unit;
 use App\Artist;
 use App\Artwork;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class ArtworkTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
+    //use DatabaseTransactions;
 
     private $world;
     public function setUp()
@@ -23,7 +25,7 @@ class ArtworkTest extends TestCase
     }
 
     /**
-     * A basic test example.
+     * tests Artwork::artist
      *
      * @return void
      */
@@ -57,7 +59,7 @@ class ArtworkTest extends TestCase
         $rtnArtist1 = $artwork1->artist;
         $rtnArtist2 = $artwork2->artist;
 
-        //returned  artists the same as originally set up?
+        // returned artists name should be the same as above
 
         $this->assertTrue($rtnArtist1->name == $artist->name);
         $this->assertTrue($rtnArtist2->name == $artist->name);

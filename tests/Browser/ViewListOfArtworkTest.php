@@ -65,11 +65,12 @@ class ViewListOfArtworkTest extends DuskTestCase
 
     }
 
-    public function testCanWeSeeTheTitle() {
-        $this->browse(function (Browser $browser) {
+    public function testCanWeSeeTheTitle() 
+    {
+        $this->browse(function (Browser $browser) 
+        {
             $browser->visit('/')
-                ->assertSee('art')
-                ->assertSee('things');
+                ->assertSee('art');
         });
     }
     
@@ -77,24 +78,54 @@ class ViewListOfArtworkTest extends DuskTestCase
     {             
         
         // test each piece of artwork is visible on the screen
-        $this->browse(function (Browser $browser) {
+        $this->browse(function (Browser $browser) 
+        {
             $artwork = Artwork::all();
             $browser->visit('/');
-            foreach($artwork as $piece) {
-                if($piece->onsale) {
-                                        
+            foreach($artwork as $piece) 
+            {
+                if($piece->onsale) 
+                {                                        
                     $browser->assertSee($piece->name);
                     $browser->assertSee($piece->price);                                            
                 }
-            }
-            
+            }            
         });
-        
-
-
-
     }
 
+    public function testCanWeSeeThePriceIfPriceIsSet() 
+    {
+        $this->browse(function(Browser $browser)
+        {
+            $artwork = Artwork::where('onsale','1')
+                ->where('pricepublic','1')
+                    ->get();
+
+            $testPiece = $artwork[0];
+
+            $browser->visit('/')
+                ->assertSee($testPiece->price);
+
+
+        });
+    }
+
+    public function testCanWeClickOnTheArtworkAndSeeDetails()
+    {
+        $this->browse(function(Browser $browser)
+        {
+            $artwork = Artwork::where('onsale', 1)
+                    ->orderby('name','asc')
+                        ->get();
+            $piece = $artwork->first();
+
+            $browser->visit('/')->clickLink($piece->name);
+
+            $browser->assertSee('Description of the piece');
+
+        });
+
+    }
 
 
 
