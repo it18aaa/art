@@ -23,4 +23,8 @@ class GalleryController extends Controller
         return view('artwork/view')
             ->with('artwork', Artwork::find($id));
     }
+
+    public function about() {
+        return view('about/about');
+    }
 }

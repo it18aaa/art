@@ -77,35 +77,25 @@
                 </div>
                 </div class="subtext"></div>
 				<div class="links">
-				<a href="/about">about</a>&nbsp;  &nbsp;
+				<a href="stuff">about</a> &amp; 
 				<a href="stuff">stuff</a>                
-                </div><br />
-
-                <div class="gallery-browser">
-                    @foreach($artwork as $piece)
-                <div class="piece">                    
-                    <div class="piece-image">
-                    <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                        <img src="img/artwork/{{ $piece->id }}.jpg" />
-                    </a>
-                    </div>
-                    <div class="piece-title">
-                    <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                        {{ $piece->name }}
-                    </a>
-                    </div>
-                    <div>                        
-                        {{ $piece->artist->name }}
-                    </div>
-                    <div class="piece-price">
-                        £{{ $piece->price }}
-                    </div>
-
-                    <div class="spacer"></div>
+                </div>
+                
+                <div class="about">
+                <h1>About the Gallery</h1>
+                <p>The Gallery was formed in 1974 by Wilbur Von Smallpants, a local art critic who had
+                stumbled upon a vast horde of modern art in a small cave in Whitegate.  Wilbur brought 
+                the Galleryto life with his new found stock, and then invited local artists to participate.
+                From those humble beginings, ArtMart has grown to a dealing with over 30 artists selling over 
+                500 pieces a year.
+                 </p>
+                
+                 <p>Address:  45 Muse Arcades, Tidburton, Foxfield.  FU2 73X</p>
+                 <p>Tel:  0131 212 2655</p>
+                 <p>Email: sales@artMart.com</p>
 
                 </div>
-                    @endforeach
-                </div>
+                
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
