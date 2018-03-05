@@ -15,3 +15,7 @@ Route::get('/', 'GalleryController@indexPage');
 Route::get('/artwork/{id}', 'GalleryController@artwork');
 Route::get('/about', 'GalleryController@about');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
