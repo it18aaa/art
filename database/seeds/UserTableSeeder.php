@@ -33,12 +33,23 @@ class UserTableSeeder extends Seeder
         $cmsuser->save();
         $cmsuser->roles()->attach($role_cms);
 
+        $admin = new User();
+        $admin->name = 'Admin';
+        $admin->email = 'admin@artmart.com';
+        $admin->password = bcrypt('secret');
+        $admin->save();
+        $admin->roles()->attach($role_cms);
+        $admin->roles()->attach($role_ims);
+        $admin->roles()->attach($role_member);
+
+
         $member = new User();
         $member->name = 'Ben Fen';
         $member->email = 'ben@hotmail.com';
         $member->password = bcrypt('secret');
         $member->save();
         $member->roles()->attach($role_member);
+
 
     }
 }

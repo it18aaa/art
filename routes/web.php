@@ -18,7 +18,14 @@ Route::get('/about', 'GalleryController@about');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-Route::get('/ims', 'IMSController@index')->middleware('auth')->middleware('requirerole:ims');
-Route::get('/cms', 'CMSController@index')->middleware('auth')->middleware('requirerole:cms');
-Route::get('/member', 'MemberController@index')->middleware('auth')->middleware('requirerole:member');
+Route::get('/home', 'HomeController@index')
+    ->name('home')->middleware('auth');
+
+Route::get('/ims', 'IMSController@index')
+    ->middleware('auth')->middleware('requirerole:ims');
+
+Route::get('/cms', 'CMSController@index')
+    ->middleware('auth')->middleware('requirerole:cms');
+
+Route::get('/member', 'MemberController@index')
+    ->middleware('auth')->middleware('requirerole:member');

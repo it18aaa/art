@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class RequireRole {
     public function handle($request, Closure $next, $role) {
         abort_unless(auth()->check() 
-            && auth()->user()->hasRole($role), 403, "You dont have permission for this area!");
+            && auth()->user()->hasRole($role), 403);
             return $next($request);
     }    
 }

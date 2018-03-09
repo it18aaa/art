@@ -15,10 +15,16 @@
                     @endif
 
                     You are logged in!<br />
-                    {{ Auth::user()->name }} <br />
+                    
+                        {{ Auth::user()->name }} <br />
+
+                        Roles:<ul>
                     @foreach(Auth::user()->roles as $r)
-                    Role: {{ $r->description }}
+                
+                        <li> {{ $r->description }} </li>
+
                     @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

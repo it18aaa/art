@@ -78,15 +78,20 @@
                 </div class="subtext"></div>
 				<div class="links">
 				<a href="/about">about</a>&nbsp;  &nbsp;
-				<a href="stuff">stuff</a>    
+				<a href="stuff">stuff</a>    &nbsp;  &nbsp;
                 @if( null !==  Auth::user()) 
-                @if (Auth::user()->hasRole('cms')) 
-                <a href="cms">cms</a>
-                @endif
+                    @if (Auth::user()->hasRole('cms')) 
+                        <a href="cms">cms</a>&nbsp;  &nbsp;
+                    @endif
 
-                @if (Auth::user()->hasRole('ims')) 
-                <a href="ims">Information Management Sytem</a>
-                @endif
+                    @if (Auth::user()->hasRole('ims')) 
+                        <a href="ims">ims</a>&nbsp;  &nbsp;
+                    @endif
+
+                    @if (Auth::user()->hasRole('member')) 
+                        <a href="member">member</a>&nbsp;  &nbsp;
+                    @endif
+
                 @endif
                 
 
