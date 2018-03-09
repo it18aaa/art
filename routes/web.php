@@ -18,4 +18,8 @@ Route::get('/about', 'GalleryController@about');
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', 'HomeController@index')->name('home');
+=======
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+>>>>>>> 9703886b975a8c540897dc176e0f7a058e13d2c3
