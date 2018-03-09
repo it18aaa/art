@@ -36,7 +36,7 @@ class User extends Authenticatable
     /**
     * @param string|array $roles
     */
-    public function authorizeRoles($roles)
+    public function authoriseRoles($roles)
     {
         if (is_array($roles)) 
         {
@@ -47,7 +47,6 @@ class User extends Authenticatable
         return $this->hasRole($roles) || 
             abort(401, 'This action is unauthorized.');
     }
-
 
     /**
     * Check multiple roles
