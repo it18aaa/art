@@ -28,9 +28,9 @@
 
         .links {
             text-align: center;
-            color: #888aaa;
-            font-family: raleway;
-            font-size: 30px;
+            color: #222999;
+            font-family: arial;
+            font-size: 20px;
             /* weight:strong; */
             text-style: underline;
         }
@@ -78,7 +78,18 @@
                 </div class="subtext"></div>
 				<div class="links">
 				<a href="/about">about</a>&nbsp;  &nbsp;
-				<a href="stuff">stuff</a>                
+				<a href="stuff">stuff</a>    
+                @if( null !==  Auth::user()) 
+                @if (Auth::user()->hasRole('cms')) 
+                <a href="cms">cms</a>
+                @endif
+
+                @if (Auth::user()->hasRole('ims')) 
+                <a href="ims">Information Management Sytem</a>
+                @endif
+                @endif
+                
+
                 </div><br />
 
                 <div class="gallery-browser">
