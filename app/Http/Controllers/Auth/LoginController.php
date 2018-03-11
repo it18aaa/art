@@ -31,8 +31,21 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
-        if(Auth::user()->hasRole('cms')) {
+        if(Auth::user()->hasRole('ims')) 
+        {
+            return '/ims';
+        } 
+        else if(Auth::user()->hasRole('cms')) 
+        {
             return '/cms';
+        }
+        else if(Auth::user()->hasRole('member')) 
+        {
+            return '/member';
+        } 
+        else 
+        {
+            return '/';
         }
     }
 
