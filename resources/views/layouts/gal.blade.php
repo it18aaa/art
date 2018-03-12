@@ -23,30 +23,26 @@
 
     </head>
     <body>
+
+
         <!-- menu bar and title -->
         @section('topbar')
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm">
-                        <h1>art</h1>    
-                    </div>
-                    <div class="col_sm">
-                        <ul>
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-right">
+                <a class="navbar-brand mb-0 h1" href="/">art</a>       
                         @if( null !==  Auth::user())
                             @if (Auth::user()->hasRole('cms'))
-                                <li><a href="cms">cms</a></li>
+                            <a class="btn btn-sm btn-outline-secondary" href="/cms" type="button">cms</a>
                             @endif
                             @if (Auth::user()->hasRole('ims'))
-                                <li><a href="ims">ims</a></li>
+                            <a class="btn btn-sm btn-outline-secondary" href="/ims" type="button">ims</a>
                             @endif
-                                <li><a href="/loguserout">logout</a></li>
+                            <a class="btn btn-sm btn-outline-secondary" href="/loguserout" type="button">logout</a>
                         @else
-                            <li><a href="/login">login</a></li>
+                        <a class="btn btn-sm btn-outline-secondary" href="/login" type="button">login</a>
                         @endif
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </nav>                
         @show
 
         
