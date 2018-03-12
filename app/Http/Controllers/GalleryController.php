@@ -9,7 +9,7 @@ class GalleryController extends Controller
 {
     public function indexPage() 
     {
-        return view('gallery')
+        return view('galleryTest')
             ->with('artwork', 
                 Artwork::where('onsale', 1)
                     ->orderby('name','asc')

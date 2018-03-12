@@ -39,14 +39,16 @@ class LoginController extends Controller
         {
             return '/cms';
         }
-        else if(Auth::user()->hasRole('member')) 
-        {
-            return '/member';
-        } 
         else 
         {
             return '/';
         }
+    }
+
+    public function loguserout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 
     /**
