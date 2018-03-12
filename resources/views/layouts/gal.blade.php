@@ -9,19 +9,23 @@
 
 <h1>art</h1>
 
-@section('sidebar')    
+@section('sidebar')   
+    <ul>
+    <li><a href="/">gallery home</a></li>
+    <li><a href="/about">about</a></li>
     @if( null !==  Auth::user()) 
             @if (Auth::user()->hasRole('cms'))                         
-                <a href="cms">cms</a>
+                <li><a href="cms">cms</a></li>
             @endif
             @if (Auth::user()->hasRole('ims'))                        
-                <a href="ims">ims</a>                 
+            <li><a href="ims">ims</a></li>                 
             @endif  
-            <a href="/loguserout">log out</a>
+            <li><a href="/loguserout">logout</a></li>
     @else
-        <a href="/login">login</a>
+    <li><a href="/login">login</a></li>
     @endif        
-    <a href="/about">about</a>
+    
+    </ul>
 @show
 
 <div class="container">

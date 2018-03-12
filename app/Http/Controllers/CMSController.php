@@ -11,7 +11,8 @@ class CMSController extends Controller
     {
         // CMS
 
-        echo "CMS AREA!";
+        //echo "CMS AREA!";
+        return view('cms/dash');
 
 
     }

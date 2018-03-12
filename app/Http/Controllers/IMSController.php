@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class IMSController extends Controller
 {
-    //
+    
     public function index() 
     {
-        echo "IMS AREA!";
+       return view('ims/dash');
     }
 }
