@@ -8,32 +8,32 @@
 @endsection
 
 @section('content')
-    <p>page body</p>
-
-                    <div class="gallery-browser">
-                    @foreach($artwork as $piece)
-                    
-                    <div class="piece">
-                        <div class="piece-image">
-                            <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                                <img src="img/artwork/{{ $piece->id }}.jpg" />
-                            </a>
-                        </div>
-                        <div class="piece-title">
-                            <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                                {{ $piece->name }}
-                            </a>
-                        </div>
-                        <div>
+   
+        @foreach(array_chunk($artwork->all(),3) as $threeArtworks)
+            <div class="row">            
+                @foreach($threeArtworks as $piece)            
+                    <div class="col-sm">                
+                        <div class="piece">
+                            <div>
+                                <a href="/artwork/{{ $piece->id}}" class="">                            
+                                    <img src="img/artwork/{{ $piece->id }}.jpg" class="img-thumbnail"/>                            
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/artwork/{{ $piece->id}}" class="">
+                                    {{ $piece->name }}
+                                </a>
+                            </div>                        
+                            <div>
                                 {{ $piece->artist->name }}
+                            </div>
+                            <div class="">
+                                £{{ $piece->price }}
+                            </div>                
                         </div>
-                        <div class="piece-price">
-                            £{{ $piece->price }}
-                        </div>
-                        <div class="spacer">
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                    </div>                
+                @endforeach
+            </div>
+        @endforeach
 
 @endsection
