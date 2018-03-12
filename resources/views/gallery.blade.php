@@ -11,9 +11,9 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" 
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
 
         <!-- Styles -->
@@ -54,8 +54,6 @@
             font-size: 20px;
             text-style: italic;
         }
-
-
         </style>
     </head>
     <body>
@@ -78,55 +76,55 @@
                 </div class="subtext"></div>
 				<div class="links">
 				<a href="/about">about</a>&nbsp;  &nbsp;
-				<a href="stuff">stuff</a>    
-                @if( null !==  Auth::user()) 
-                    @if (Auth::user()->hasRole('cms')) 
+				<a href="stuff">stuff</a>
+                @if( null !==  Auth::user())
+                    @if (Auth::user()->hasRole('cms'))
                         &nbsp;  &nbsp;
                         <a href="cms">cms</a>
-                        
+
                     @endif
 
-                    @if (Auth::user()->hasRole('ims')) 
+                    @if (Auth::user()->hasRole('ims'))
                         &nbsp;&nbsp;
                         <a href="ims">ims</a>
-                        
+
                     @endif
 
-                    @if (Auth::user()->hasRole('member')) 
+                    @if (Auth::user()->hasRole('member'))
                         &nbsp;&nbsp;
                         <a href="member">member</a>
                     @endif
 
                 @endif
-                
+
 
                 </div><br />
 
                 <div class="gallery-browser">
                     @foreach($artwork as $piece)
-                <div class="piece">                    
-                    <div class="piece-image">
-                    <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                        <img src="img/artwork/{{ $piece->id }}.jpg" />
-                    </a>
+                    <div class="piece">
+                        <div class="piece-image">
+                            <a href="/artwork/{{ $piece->id}}" class="artwork-link">
+                                <img src="img/artwork/{{ $piece->id }}.jpg" />
+                            </a>
+                        </div>
+                        <div class="piece-title">
+                            <a href="/artwork/{{ $piece->id}}" class="artwork-link">
+                                {{ $piece->name }}
+                            </a>
+                        </div>
+                        <div>
+                                {{ $piece->artist->name }}
+                        </div>
+                        <div class="piece-price">
+                            £{{ $piece->price }}
+                        </div>
+                        <div class="spacer">
+                        </div>
                     </div>
-                    <div class="piece-title">
-                    <a href="/artwork/{{ $piece->id}}" class="artwork-link">
-                        {{ $piece->name }}
-                    </a>
-                    </div>
-                    <div>                        
-                        {{ $piece->artist->name }}
-                    </div>
-                    <div class="piece-price">
-                        £{{ $piece->price }}
-                    </div>
-
-                    <div class="spacer"></div>
-
-                </div>
                     @endforeach
                 </div>
+                
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

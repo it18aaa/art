@@ -1,0 +1,44 @@
+.title {
+    text-align: center;
+    color:#555555;
+    font-family: raleway;
+    font-size: 110px;
+    /*weight: strong;*/
+}
+
+.links {
+    text-align: center;
+    color: #222999;
+    font-family: arial;
+    font-size: 20px;
+    /* weight:strong; */
+    text-style: underline;
+}
+.piece {
+    /* border: 10px solid black; */
+}
+.piece-image img {
+    width: 320px;
+    height: 240px; 
+    box-shadow: 6px 6px 7px grey;
+}
+
+}
+.piece-title {
+    color: #555555;
+    font-family: raleway;
+    font-size: 40px;
+}
+.piece-price {
+    color: #555555;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    text-style: italic;
+}
+
+#topbar {
+    float:right;
+    margin: 5px;
+    padding-right: 10px;
+    box-shadow: 6px 6px 7px grey;
+}
