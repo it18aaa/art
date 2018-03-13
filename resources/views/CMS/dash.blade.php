@@ -4,10 +4,13 @@
 
 
 @section('sidebar')
-    @parent
-    <p> this is appended to the master sidebar </p>
+    @parent    
 @endsection
 
 @section('content')
-    <p>page body</p>
+    <h1> CMS Dashboard </h1>
+
+    @for($a=0; $a<30; $a++)
+    <br />
+    @endfor
 @endsection

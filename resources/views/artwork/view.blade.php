@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <img src="{{ '/img/artwork/' . $artwork->id . ".jpg" }}" />
+    <img src="{{ '/img/artwork/' . $artwork->id . ".jpg" }}" class="art-shadow"/>
     <div>{{ $artwork->name }}</div>        
     <div>by {{ $artwork->artist->name }}</div>
     <h3>Description of the piece</h3>

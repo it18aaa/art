@@ -42,3 +42,23 @@
     padding-right: 10px;
     box-shadow: 6px 6px 7px grey;
 }
+
+.art-shadow {
+    box-shadow: 7px 7px 12px #aaa;
+}
+
+#sticky-sidebar 
+{
+    position: fixed;   
+    /*max-width: 20%;*/
+}
+
+.mainsplash
+{
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+.piece {
+    padding-bottom: 40px;
+}

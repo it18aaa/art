@@ -15,9 +15,9 @@
                     @endif
 
                     You are logged in!<br />
-                    {{ Auth::user()->name }} <br />
+                      {{ Auth::user()->name }} <br />
                     @foreach(Auth::user()->roles as $r)
-                    Role: {{ $r->description }}
+                      Role: {{ $r->description }}
                     @endforeach
                 </div>
             </div>
