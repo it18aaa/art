@@ -9,10 +9,20 @@
 @endsection
 
 @section('content')
+    <div><h1>{{ $artwork->name }}</h1></div>  
     <img src="{{ '/img/artwork/' . $artwork->id . ".jpg" }}" class="art-shadow"/>
-    <div>{{ $artwork->name }}</div>        
+          
     <div>by {{ $artwork->artist->name }}</div>
-    <h3>Description of the piece</h3>
+
+    <div>
+    @if($artwork->pricepublic)        
+            £{{ $artwork->price }}        
+    @else
+        (Please enquire about price)
+    @endif
+    </div>
+
+    <h4>Description of the piece</h4>
 
 
 @endsection

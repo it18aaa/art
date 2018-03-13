@@ -11,9 +11,10 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css" />    
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet" />
 
-        <link href="{{ asset('css/gal.css') }}" rel="stylesheet"> 
+        
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/gal.css') }}" rel="stylesheet"> 
 
     </head>
     <body>
@@ -22,14 +23,14 @@
         <!-- menu bar and title -->
         @section('topbar')
             <nav class="navbar navbar-expand-md navbar-expand-sm navbar-light bg-faded ">
-            <a class="navbar-brand " href="#">Sprinklewood</a>
+            <a class="navbar-brand " href="/">von sprinkles</a>
                 <div class="container ">             
                 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">                
                         <!-- Left Side Of Navbar -->
                         
                         <ul class="navbar-nav mr-auto">  
-                            <li><a class="nav-link"  href="/">gallery</a></li>
+                            <li><a class="nav-link"  href="/gallery">browse</a></li>
                             <li><a class="nav-link" href="/about">about</a></li>                  
                         </ul>
                         <!-- Right Side Of Navbar -->
@@ -52,7 +53,6 @@
             </nav>
         @show
 
-
         <div class="container-fluid">
             <div class="row " >
                 <div class="col-sm-2" >
@@ -72,9 +72,9 @@
 
                 </div>
 
-                <div class="col-sm-8" id="main">            
+                <div class="col-sm-2 ml-auto" id="main" >            
 
-                    @yield('right-content')
+                    @yield('rightcontent')
 
                 </div>
             </div class=""><!-- row -->

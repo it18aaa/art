@@ -62,3 +62,7 @@
 .piece {
     padding-bottom: 40px;
 }
+
+.jumbotron {
+    background-image: url('/img/artwork/3.jpg')
+}

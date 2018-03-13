@@ -7,15 +7,27 @@ use App\Artwork;
 
 class GalleryController extends Controller
 {
-    public function indexPage() 
+    public function browsePage() 
     {
-        return view('galleryTest')
+        return view('gallery')
             ->with('artwork', 
                 Artwork::where('onsale', 1)
                     ->orderby('name','asc')
                         ->get()
             );
     }
+
+    public function splashPage() 
+    {
+        return view('splash')
+            ->with('artwork', 
+                Artwork::where('onsale', 1)
+                    ->orderby('name','asc')
+                        ->get()
+            );
+    }
+
+
 
     public function artwork($id)
     {
