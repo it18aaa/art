@@ -20,10 +20,10 @@ class GalleryController extends Controller
     public function splashPage() 
     {
         return view('splash')
-            ->with('artwork', 
-                Artwork::where('onsale', 1)
-                    ->orderby('name','asc')
-                        ->get()
+            ->with('featured', Artwork::where('onsale', 1)
+                    ->orderby('price','desc')
+                        ->take(4)
+                            ->get()
             );
     }
 

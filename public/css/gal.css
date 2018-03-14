@@ -14,9 +14,7 @@
     /* weight:strong; */
     text-style: underline;
 }
-.piece {
-    /* border: 10px solid black; */
-}
+
 .piece-image img {
     width: 320px;
     height: 240px; 
@@ -63,6 +61,28 @@
     padding-bottom: 40px;
 }
 
-.jumbotron {
-    background-image: url('/img/artwork/3.jpg')
+#splash {
+    background-image: url('/img/artwork/33.jpg');
+    background-size: cover; 
+    background-position: center center;
+    color: white;
+    background-repeat: no-repeat; 
+}
+
+#splash h1 {
+    margin-top: 20%;
+    font-family: 'Shadows Into Light', cursive;
+    text-shadow: 2px 2px black;
+    font-size: 400%;
+}
+
+.navbar-brand {
+    
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 300%;
+    /*text-shadow: 1px 1px black; */
+}
+.splashlinks {
+    color: white;    
+    text-shadow: 2px 2px 3px black;
 }
