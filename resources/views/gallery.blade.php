@@ -10,9 +10,9 @@
 @section('content')   
 
 
-    @foreach(array_chunk($artwork->all(),3) as $threeArtworks)
+    @foreach(array_chunk($artwork->all(),4) as $artworks)
         <div class="row">            
-            @foreach($threeArtworks as $piece)            
+            @foreach($artworks as $piece)            
                 <div class="col-sm">                
                     <div class="piece " style="border-bottom: 1px dashed #bbb; margin-bottom: 15px; ">
                         

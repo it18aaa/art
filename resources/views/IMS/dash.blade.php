@@ -14,7 +14,7 @@
         <div class="col-sm-6">
             <h4>Artwork</h4>
             <ul>
-                <li><a href="">create an artwork</a></li>   
+                <li><a href="artworks/create">create an artwork</a></li>   
                 <li><a href="#">view an artwork</a></li>
                 <li><a href="#">edit an artwork</a></li>     
                 <li><a href="#">delete an artwork</a></li>     

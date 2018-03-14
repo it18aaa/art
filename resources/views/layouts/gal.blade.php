@@ -59,10 +59,8 @@
                 <div class="col-sm-2" >
                     <div class="col-sm-2" id="sticky-sidebar" >            
                         @section('sidebar')
-                            <!--<ul class="">                    
-                                <li><a href="/">gallery</a></li>
-                                <li><a href="/about">about</a></li>
-                            </ul>                -->
+                            
+                            
                         @show
                     </div>
                 </div>

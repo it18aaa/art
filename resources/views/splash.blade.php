@@ -20,7 +20,7 @@
                             </a>
                         </div>
 
-                        <div >
+                        <div class="text-center ">
                             <a href="/artwork/{{ $piece->id}}" class="splashlinks">
                                 {{ $piece->name }}
                             </a>
