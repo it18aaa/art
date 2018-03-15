@@ -26,7 +26,10 @@
                             <a href="/artwork/{{ $piece->id}}" class="">
                                 {{ $piece->name }}
                             </a>
-                        </div>                                                
+                        </div>       
+                        <div >
+                            £{{ $piece->price }}
+                        </div>                                         
                         <div >
                             {{ $piece->artist->name }}
                         </div>

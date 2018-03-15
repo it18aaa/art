@@ -85,16 +85,15 @@
                 <div class="row">
                     <div class="col-md-2">
                     </div>
-                    <div class="col-md-3">
-                        Copyright sprinkly 2018
-                        All rights reserved
-                        
-                        Copyright of artistic material belongs to artist.
+                    <div class="col-md-3" class="small">
+                        Copyright Von Sprinkles 
+                        Modern Art Gallery 2018                        
                     </div>
                     <div class="col-md-3">
-                    All artwork on this page is show for illustration purposes </div>
-                    <div class="col-md-3">
-                        more things go here
+                    </div>
+                    <div class="col-md-3">                    
+                        <a href="/about">Contact Us</a>
+                        to arrange a viewing or discuss a piece. 
                     </div>
                     <div class="col-md-2">
                     </div>

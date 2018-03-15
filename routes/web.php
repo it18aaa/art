@@ -19,8 +19,12 @@ Route::get('/about', 'GalleryController@about');
 
 Route::resource('artworks', 'ArtworkController');
 
-
-
+Route::get('/cms/artwork/descriptions', 'ArtworkController@descriptionsList')
+    ->middleware('auth')->middleware('requirerole:cms');
+Route::get('/cms/artwork/description/{id}', 'ArtworkController@descriptionsForm')
+    ->middleware('auth')->middleware('requirerole:cms');
+Route::post('/cms/artwork/updateDescription', 'ArtworkController@descriptionsUpdate')
+    ->middleware('auth')->middleware('requirerole:cms');
 
 
 Auth::routes();

@@ -20,7 +20,7 @@ class AboutTest extends DuskTestCase
         $this->browse(function (Browser $browser) 
         {
             $browser->visit('/')
-                ->clickLink('about')
+                ->clickLink('About')
                 ->assertSee('About the Gallery');              
         });
     }    
@@ -61,7 +61,7 @@ class AboutTest extends DuskTestCase
         $this->browse(function (Browser $browser)
         {
             $browser->visit('/about')
-            ->assertSee('Email:');
+            ->assertSee('Tel:');
         });
     }
 

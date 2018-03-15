@@ -27,8 +27,6 @@ class GalleryController extends Controller
             );
     }
 
-
-
     public function artwork($id)
     {
         //echo "Hello $id";

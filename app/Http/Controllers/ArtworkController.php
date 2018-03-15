@@ -76,6 +76,44 @@ class ArtworkController extends Controller
         
     }
 
+    public function descriptionsList() 
+    {
+        // show a list of artworks and click on one to update the description
+
+        return view('CMS/artworkDescriptionsList')
+            ->with('artworks', Artwork::all());
+    }
+    
+    public function descriptionsForm($id) 
+    {
+        // load the relevent data into the description form
+        // and displya it
+
+        return view('CMS/artworkDescriptionsForm')
+            ->with('artwork', Artwork::find($id));
+
+    }
+
+    public function descriptionsUpdate(Request $request) 
+    {
+        // write the updated artwork description 
+
+        $artwork = Artwork::find($request->id);
+
+        $artwork->description = $request->description;
+        $artwork->save();
+
+        //dd($artwork);
+
+        return view('CMS/artworkDescriptionsDone')
+            ->with('artwork', $artwork);
+
+    }
+
+
+
+
+
     /**
      * Display the specified resource.
      *

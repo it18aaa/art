@@ -70,7 +70,7 @@ class ViewListOfArtworkTest extends DuskTestCase
         $this->browse(function (Browser $browser) 
         {
             $browser->visit('/')
-                ->assertSee('art');
+                ->assertSee('Von Sprinkles');
         });
     }
     
@@ -81,13 +81,13 @@ class ViewListOfArtworkTest extends DuskTestCase
         $this->browse(function (Browser $browser) 
         {
             $artwork = Artwork::all();
-            $browser->visit('/');
+            $browser->visit('/gallery');
+
             foreach($artwork as $piece) 
             {
                 if($piece->onsale) 
                 {                                        
-                    $browser->assertSee($piece->name);
-                    $browser->assertSee($piece->price);                                            
+                    $browser->assertSee($piece->name);                   
                 }
             }            
         });
@@ -103,7 +103,7 @@ class ViewListOfArtworkTest extends DuskTestCase
 
             $testPiece = $artwork[0];
 
-            $browser->visit('/')
+            $browser->visit('/gallery')
                 ->assertSee($testPiece->price);
 
 
@@ -119,7 +119,7 @@ class ViewListOfArtworkTest extends DuskTestCase
                         ->get();
             $piece = $artwork->first();
 
-            $browser->visit('/')->clickLink($piece->name);
+            $browser->visit('/gallery')->clickLink($piece->name);
 
             $browser->assertSee('Description of the piece');
 

@@ -22,6 +22,18 @@
     @endif
     </div>
     <h4>Description of the piece</h4>    
+
+        @if( null !==  Auth::user())
+            @if (Auth::user()->hasRole('cms')) 
+                <div>                                       
+                <a href="/cms/artwork/description/{{ $artwork->id }}">
+                Click here to edit the description
+                </a>
+                </div>
+            @endif
+        @endif
+    
+    {{ $artwork->description }}
 @endsection
 
 

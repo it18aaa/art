@@ -19,7 +19,8 @@ class CreateArtworksTable extends Migration
             $table->integer('price');
             $table->boolean('onsale');
             $table->boolean('pricepublic');        
-            $table->unsignedInteger('artist_id')    ;
+            $table->unsignedInteger('artist_id');
+            $table->string('description')->default('');
             $table->timestamps();
         });
     }

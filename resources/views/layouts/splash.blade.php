@@ -36,7 +36,7 @@
                         <p>                           
                             Gallery of Modern Art
                             <p class="text-right"><a type="button" class="btn" href="/gallery" >Browse</a>
-                        </p>                        
+                            <a type="button" class="btn" href="/about" >About</a>  </p>                        
                     </div>
                 </div> <!-- row -->
             <div><!-- continer -->

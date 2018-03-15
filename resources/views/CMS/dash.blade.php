@@ -8,9 +8,10 @@
 @endsection
 
 @section('content')
+
     <h1> CMS Dashboard </h1>
 
-    @for($a=0; $a<30; $a++)
-    <br />
-    @endfor
+    <a href="/cms/artwork/descriptions">Update a description</a>
+
+
 @endsection
