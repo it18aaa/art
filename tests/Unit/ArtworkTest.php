@@ -12,19 +12,8 @@ class ArtworkTest extends TestCase
 {
     use DatabaseMigrations;
     //use DatabaseTransactions;
-
-    private $world;
-    public function setUp()
-    {
-        parent::setUp();
-    }
-
-    public function tearDown()
-    {
-        parent::tearDown();
-    }
-
-    /**
+   
+    /** 
      * tests Artwork::artist
      *
      * @return void
@@ -32,7 +21,7 @@ class ArtworkTest extends TestCase
     public function testArtworkReturnsArtist()
     {
         // create world...
-        // create an artist
+        
         $artist = new Artist;
         $artist->name = "Bingo Jefferson";
         $artist->save();
@@ -55,17 +44,24 @@ class ArtworkTest extends TestCase
         $artwork2->save();
 
         // run the method
-
         $rtnArtist1 = $artwork1->artist;
         $rtnArtist2 = $artwork2->artist;
 
         // returned artists name should be the same as above
-
         $this->assertTrue($rtnArtist1->name == $artist->name);
         $this->assertTrue($rtnArtist2->name == $artist->name);
-
     }
 
-    
+    private $world;
+    public function setUp()
+    {
+        parent::setUp();
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+    }
+
 
 }
