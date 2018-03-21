@@ -27,6 +27,8 @@ Route::post('/cms/artwork/updateDescription', 'ArtworkController@descriptionsUpd
     ->middleware('auth')->middleware('requirerole:cms');
 
 
+Route::resource('customers', 'CustomerController');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')
