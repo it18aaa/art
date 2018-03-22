@@ -14,8 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
-        echo "Customer index()";
+        return view('customers.index')
+        ->with('customers', Customer::paginate(15));
     }
 
     /**
@@ -25,10 +25,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
-        //echo "Customer create()";
-
+        //        
         return view('forms.Customer');
+            
 
     }
 
@@ -40,19 +39,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //echo "Customer store()";
-
         $customer = new Customer();
-
         $customer->firstname = $request->firstname;
-        $customer->lastname = $request->lastname;
-
-        
+        $customer->lastname = $request->lastname;       
         $customer->save();
 
-
-        redirect('/customers');
+        // return to index page with message
+        return redirect('/customers')
+            ->with('info', $customer->firstname." ". $customer->lastname . " created successfully.");
 
     }
 
@@ -91,11 +85,18 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
-        echo "Customer update()";
+        
+        // validation required
 
+        $customer->firstname = $request->firstname;
+        $customer->lastname = $request->lastname;
+
+        
         $customer->save();
-        dd($customer);
+        
+        return redirect('/customers')
+            ->with('info',
+                $customer->firstname." ". $customer->lastname . " updated successfully.");
     }
 
     /**

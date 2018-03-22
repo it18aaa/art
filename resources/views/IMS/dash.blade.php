@@ -15,13 +15,13 @@
             <h4>Artwork</h4>
             <ul>
                 <li><a href="artworks/create">create an artwork</a></li>   
-  
-                more functionality will appear here in later releases
 
             </ul>
         </div>        
         <div class="col-sm-6">
-            
+                <h3>Customers</h3>
+                <li><a href="customers/">Customers</a></li>
+                
         </div>
     </div>
 @endsection

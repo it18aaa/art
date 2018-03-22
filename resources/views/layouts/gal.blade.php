@@ -67,6 +67,8 @@
 
                 <div class="col-sm-8" id="main">            
 
+                    @include('layouts.flashmessage')
+
                     @yield('content')
 
                 </div>
