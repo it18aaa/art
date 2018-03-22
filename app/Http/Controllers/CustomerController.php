@@ -41,8 +41,18 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
-        echo "Customer store()";
+        //echo "Customer store()";
 
+        $customer = new Customer();
+
+        $customer->firstname = $request->firstname;
+        $customer->lastname = $request->lastname;
+
+        
+        $customer->save();
+
+
+        redirect('/customers');
 
     }
 
@@ -83,6 +93,9 @@ class CustomerController extends Controller
     {
         //
         echo "Customer update()";
+
+        $customer->save();
+        dd($customer);
     }
 
     /**

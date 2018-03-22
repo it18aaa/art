@@ -6,11 +6,10 @@
 
     @if(!isset($customer))
         <h1>Create Customer</h1>
-        {!! Form::open(['route' => 'customers.create', 
-                 'method' => 'put'])   !!}
+        {!! Form::open(['route' => 'customers.store'])   !!}
     @else
         <h1>Edit Customer</h1>
-        {!! Form::model($customer, ['route' => ['customers.update', $customer->id]]) !!}
+        {!! Form::model($customer, ['route' => ['customers.update', $customer->id], 'method' => 'PUT']) !!}
     @endif
         
         <div class="form-group">
