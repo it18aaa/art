@@ -5,6 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Artist::class, function (Faker $faker) {
     return [
         //
-        'name' => $faker->firstName . " " . $faker->lastName
+        'firstname' => $faker->firstName,
+        'lastname' => $faker->lastName
     ];
 });

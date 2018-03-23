@@ -24,4 +24,19 @@ class Artist extends Model
     {
         echo "updateArtistForm()";
     }
+
+    public function countArtworks()
+    {
+        return $this->artworks()->count();
+    }
+
+    public function artworksPaginate($count = 0) 
+    {
+        if($count > 0) {
+            return $this->artworks()->paginate($count);
+        } else {
+            return $this->artworks(); 
+        }
+    }
 }
+

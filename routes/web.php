@@ -28,6 +28,7 @@ Route::post('/cms/artwork/updateDescription', 'ArtworkController@descriptionsUpd
 
 
 Route::resource('customers', 'CustomerController');
+Route::resource('artists', 'ArtistController');
 
 Auth::routes();
 
