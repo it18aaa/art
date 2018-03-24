@@ -3,6 +3,8 @@
 @section('title', 'art')
 
 @section('sidebar')
+
+    @include('partials.leftnav')
     @parent
 @endsection
 
