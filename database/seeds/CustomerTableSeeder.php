@@ -13,9 +13,6 @@ class CustomerTableSeeder extends Seeder
     public function run()
     {
         // create some customers
-        for($index = 0; $index < 20; $index++) 
-        {
-            $customer = factory(Customer::class)->create();
-        }
+        $customers = factory(Customer::class, 20)->create();        
     }
 }

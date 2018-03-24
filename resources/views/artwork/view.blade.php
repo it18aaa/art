@@ -9,19 +9,30 @@
 @endsection
 
 @section('content')
-    <div><h1>{{ $artwork->name }}</h1></div>  
+    <div>
+        <h1>{{ $artwork->name }}</h1>
+    </div>  
     <img src="{{ '/img/artwork/' . $artwork->id . ".jpg" }}" class="art-shadow img-fluid "/>
           
-    <div>by {{ $artwork->artist->name }}</div>
+    <div>by {{ $artwork->artist->firstname . " " .$artwork->artist->lastname }}</div>
 
     <div>
-    @if($artwork->pricepublic)        
-            £{{ $artwork->price }}        
-    @else
-        (Please enquire about price)
-    @endif
+        @if($artwork->pricepublic)        
+                £{{ $artwork->price }}        
+        @else
+            (Please enquire about price)
+        @endif
+    </div>  
+    <div class="row">
+        <h4>Description of the piece</h4>    
     </div>
-    <h4>Description of the piece</h4>    
+    <div class="row">
+        Tags: 
+        @foreach($artwork->tags as $tag)
+            <a href="/artwork/tagged/{{ $tag->id }}">{{ $tag->name }}</a>
+        @endforeach
+    </div>  
+    <div class="row"
 
         @if( null !==  Auth::user())
             @if (Auth::user()->hasRole('cms')) 
@@ -32,6 +43,7 @@
                 </div>
             @endif
         @endif
+    </div>
     
     {{ $artwork->description }}
 @endsection

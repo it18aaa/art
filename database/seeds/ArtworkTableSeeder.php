@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Artwork;
-use App\Tag;
+
 
 class ArtworkTableSeeder extends Seeder
 {
@@ -13,16 +13,15 @@ class ArtworkTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        // create some artwork
-        for ($index = 0; $index < 40; $index++) 
-        {            
-            $artwork = factory(Artwork::class);
+        
 
-            $tag = Tag::where('name', 'painting')->first();
+        $artworks = factory(Artwork::class, 40)->create();
 
-            $artwork->tags->attach($tag);
-            $artwork->create();    
+        $faker = Faker\Factory::create();
+        $tags = array("painting", "drawing", "sculpture", "crayon", "photograph", "computer generated");        
+
+        foreach($artworks as $artwork ) {
+            $artwork->tag( $faker->randomElement( $tags) );
         }
     }
 }

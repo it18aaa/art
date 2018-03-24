@@ -167,6 +167,10 @@ return [
         */ 
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+        *   rtconner tagging library - laravel-tagging
+        */
+        \Conner\Tagging\Providers\TaggingServiceProvider::class,
     ],
 
     /*

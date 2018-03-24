@@ -1,18 +1,18 @@
 
 <div class="row">
     <div class="col-sm-10 ">
-        <a href="#" class="btn btn-primary">Featured Artwork</a>
+        <a href="#" >Featured Artwork</a>
     </div>
     <div class="col-sm-10">
-        <a href="#" class="btn btn-primary">News</a>
+        <a href="#" >News</a>
     </div>
     <div class="col-sm-10">
-        <a href="#" class="btn btn-primary">Stuff</a>
+        <a href="#" >Stuff</a>
     </div>
     <div class="col-sm-10">
-        <a href="#" class="btn btn-primary">Other</a>
+        <a href="#" >Other</a>
     </div>
     <div class="col-sm-10">
-        <a href="#" class="btn btn-primary">Watcha</a>
+        <a href="#" >Watcha</a>
     </div>
 </div>
