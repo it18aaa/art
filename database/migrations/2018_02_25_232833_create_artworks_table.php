@@ -17,10 +17,14 @@ class CreateArtworksTable extends Migration
             $table->increments('id');
             $table->string('name');            
             $table->integer('price');
-            $table->boolean('onsale');
+            $table->boolean('sold');
             $table->boolean('pricepublic');        
+            
             $table->unsignedInteger('artist_id');
             $table->string('description')->default('');
+            $table->integer('w')->default(0);
+            $table->integer('h')->default(0);
+            $table->integer('d')->default(0);
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class GalleryController extends Controller
     {
         return view('gallery')
             ->with('artwork', 
-                Artwork::where('onsale', 1)
+                Artwork::where('sold', 0)
                     ->orderby('name','asc')
                         ->get()
             );
@@ -20,7 +20,7 @@ class GalleryController extends Controller
     public function splashPage() 
     {
         return view('splash')
-            ->with('featured', Artwork::where('onsale', 1)
+            ->with('featured', Artwork::where('sold', 0)
                     ->orderby('price','desc')
                         ->take(4)
                             ->get()

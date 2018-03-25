@@ -43,7 +43,7 @@ class ArtistTest extends TestCase
         $artwork1->artist_id = $artist->id;
         $artwork1->price = 999;
         $artwork1->pricepublic = true;
-        $artwork1->onsale = true;
+        $artwork1->sold = false;
         $artwork1->save();
 
         $artwork2 = new Artwork;
@@ -51,7 +51,7 @@ class ArtistTest extends TestCase
         $artwork2->artist_id = $artist->id;
         $artwork2->price = 444;
         $artwork2->pricepublic = true;
-        $artwork2->onsale = true;
+        $artwork2->sold = false;
         $artwork2->save();
 
         // use the method

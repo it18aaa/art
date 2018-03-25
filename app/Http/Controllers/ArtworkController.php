@@ -54,11 +54,11 @@ class ArtworkController extends Controller
                     $artwork->pricepublic = false;
                 }
 
-                if( null !== $request->onsale ) 
+                if( null !== $request->sold ) 
                 { 
-                    $artwork->onsale = true;
+                    $artwork->sold = true;
                 } else {
-                    $artwork->onsale = false;
+                    $artwork->sold = false;
                 }
 
                 $artwork->save();       

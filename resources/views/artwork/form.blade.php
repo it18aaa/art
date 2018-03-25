@@ -36,13 +36,13 @@
 
             <div class="row">
                 <div class="col-sm-3 text-right">
-                    For sale?:
+                    Sold:
                 </div>
                 <div class="col-sm-3">
                     <input label="name" 
                         type="checkbox" 
-                        name="onsale" 
-                        value="onsale">
+                        name="sold" 
+                        value="sold">
                     </input>
                 </div>
             </div>

@@ -8,7 +8,7 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
         //
         'name' => $faker->word . " " . $faker->word,      
         'price' => $faker->numberBetween(50,10000),
-        'onsale' => $faker->boolean,
+        'sold' => $faker->boolean,
         'pricepublic' => $faker->boolean,
         'artist_id' => $faker->numberBetween(1,19)
     ];

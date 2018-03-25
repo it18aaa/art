@@ -85,7 +85,7 @@ class ViewListOfArtworkTest extends DuskTestCase
 
             foreach($artwork as $piece) 
             {
-                if($piece->onsale) 
+                if( !$piece->sold) 
                 {                                        
                     $browser->assertSee($piece->name);                   
                 }
@@ -97,7 +97,7 @@ class ViewListOfArtworkTest extends DuskTestCase
     {
         $this->browse(function(Browser $browser)
         {
-            $artwork = Artwork::where('onsale','1')
+            $artwork = Artwork::where('sold','0')
                 ->where('pricepublic','1')
                     ->get();
 
@@ -114,7 +114,7 @@ class ViewListOfArtworkTest extends DuskTestCase
     {
         $this->browse(function(Browser $browser)
         {
-            $artwork = Artwork::where('onsale', 1)
+            $artwork = Artwork::where('sold', 0)
                     ->orderby('name','asc')
                         ->get();
             $piece = $artwork->first();
