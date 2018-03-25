@@ -26,7 +26,7 @@
     </div>
     <div class="col-sm-6">
         <ul>
-            <li><a href="/customers/create">create new customer</a></li>
+            <li><a href="/ims/customers/create">create new customer</a></li>
         </ul>
     </div>
 </div>
