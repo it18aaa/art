@@ -12,8 +12,8 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::resource('customers', 'IMS\CustomerController');        
         Route::resource('artists', 'IMS\ArtistController');
 
-        Route::get('roleattach/{role_name}/{user_id}', 'IMS\RoleController@attach');
-        Route::get('roledetach/{role_name}/{user_id}', 'IMS\RoleController@detach');
+        Route::post('roleattach/{role_name}/{user_id}', 'IMS\RoleController@attach');
+        Route::post('roledetach/{role_name}/{user_id}', 'IMS\RoleController@detach');
 
     });
 });

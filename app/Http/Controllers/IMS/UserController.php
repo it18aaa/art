@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\IMS;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,10 @@ class UserController extends Controller
     public function index()
     {
         return view('IMS.users.index')
-            ->with('users', User::all() );
+            ->with([
+                'users' => User::all(),
+                'roles' => Role::all()
+            ]);
     }
 
   
