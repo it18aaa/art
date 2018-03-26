@@ -11,6 +11,10 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::resource('artworks', 'IMS\ArtworkController');    
         Route::resource('customers', 'IMS\CustomerController');        
         Route::resource('artists', 'IMS\ArtistController');
+
+        Route::get('roleattach/{role_name}/{user_id}', 'IMS\RoleController@attach');
+        Route::get('roledetach/{role_name}/{user_id}', 'IMS\RoleController@detach');
+
     });
 });
     

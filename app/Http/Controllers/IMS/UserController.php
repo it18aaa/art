@@ -5,32 +5,39 @@ namespace App\Http\Controllers\IMS;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
   
     public function index()
     {
-        //
-        //echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
-
-
         return view('IMS.users.index')
             ->with('users', User::all() );
     }
 
   
     public function create()
-    {
-        //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+    {              
+        return view('IMS.users.create');            
     }
 
    
     public function store(Request $request)
     {
-        //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        return redirect()->route('ims.users.index');
     }
 
   
@@ -44,7 +51,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        return view('IMS.users.create')
+            ->with('user', $user);
     }
 
  
