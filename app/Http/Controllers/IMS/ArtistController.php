@@ -22,7 +22,6 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
-        //
         $artist = new Artist();
         $artist->firstname = $request->firstname;
         $artist->lastname = $request->lastname;
@@ -33,12 +32,7 @@ class ArtistController extends Controller
             ->with('info', $artist->firstname . " " . $artist->lastname . " created. ");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Artist $artist)
     {        
         return view('artists.view')
@@ -48,44 +42,25 @@ class ArtistController extends Controller
             ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Artist $artist)
     {
-        //
+        
         return view('IMS.artists.create')
             ->with('artist', $artist);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Artist $artist)
     {
-        //
         $artist->firstname = $request->firstname;
         $artist->lastname = $request->lastname;
         $artist->bio = $request->bio;
         $artist->save();
 
-        return redirect('/artists')
+        return redirect()->route('ims.artists.index')
             ->with('info', $artist->firstname . " " . $artist->lastname .  " modified successfully.");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Artist $artist)
     {
         //stub

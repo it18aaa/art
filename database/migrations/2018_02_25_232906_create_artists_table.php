@@ -17,7 +17,14 @@ class CreateArtistsTable extends Migration
             $table->increments('id');
             $table->string('firstname');            
             $table->string('lastname');
-            $table->text('bio');
+            $table->string('address1')->nullable(true);
+            $table->string('address2')->nullable(true);
+            $table->string('town')->nullable(true);;
+            $table->string('county')->nullable(true);;
+            $table->string('postcode')->nullable(true);;
+            $table->string('telephone')->nullable(true);;
+            $table->string('email')->nullable(true);
+            $table->text('bio')->nullable(true);;
             $table->timestamps();
         });
     }

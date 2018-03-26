@@ -27,21 +27,16 @@
             <div class="row" >
                 <div class="col-sm-2" >
                     <div class="col-sm-2" id="sticky-sidebar" >            
-                        @section('sidebar')
-                            
-                            
+                        @section('sidebar')                                                        
                         @show
                     </div>
                 </div>
-
                 <div class="col-sm-8" id="main">            
 
                     @include('layouts.flashmessage')
-
                     @yield('content')
 
                 </div>
-
                 <div class="col-sm-2 ml-auto" id="main" >            
 
                     @yield('rightcontent')
@@ -71,6 +66,13 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+                setTimeout(function() {
+                    $('.flashmessage').fadeOut(5000);
+                }, 1000);        
+        </script>
+
 
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
