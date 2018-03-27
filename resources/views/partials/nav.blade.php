@@ -1,5 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-expand-sm navbar-light bg-faded ">
-            <a class="navbar-brand " href="/">von sprinkles</a>
+@if( null !==  Auth::user())
+    @if (Auth::user()->hasRole('cms') || Auth::user()->hasRole('ims'))
+        <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark bg-dark" >
+    @endif
+@else
+    <nav class="navbar navbar-expand-md navbar-expand-sm navbar-light navbar-faded ">    
+@endif
+    <a class="navbar-brand" href="/">von sprinkles</a>            
                 <div class="container ">             
                 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">                

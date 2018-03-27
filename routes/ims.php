@@ -15,6 +15,11 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::post('roleattach/{role_name}/{user_id}', 'IMS\RoleController@attach');
         Route::post('roledetach/{role_name}/{user_id}', 'IMS\RoleController@detach');
 
+        Route::get('users/{user}/password', 'IMS\UserController@editPassword')
+            ->name('users.password.edit');
+        Route::put('users/{user}/password', 'IMS\UserController@updatePassword')
+            ->name('users.password.update');
+
     });
 });
     

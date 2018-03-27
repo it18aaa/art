@@ -3,9 +3,6 @@
 <div class="row">
     @section('content')
 
-
-
-
         <div class="col col-left">
             @if(!isset($user))
                 <h1>Create User</h1>

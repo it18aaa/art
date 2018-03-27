@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         return view('IMS.users.index')
             ->with([
-                'users' => User::all(),
+                'users' => User::paginate(10),
                 'roles' => Role::all()
             ]);
     }
@@ -71,5 +71,25 @@ class UserController extends Controller
     {
         //
         echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+
+        dd($user);
+    }
+
+    public function editPassword(User $user)
+    {
+        return view('IMS.users.password')
+            ->with('user', $user);
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $data = $request->validate([
+            'password' => 'required|confirmed|min:6'
+        ]);
+        
+        $user->password = Hash::make($data['password']);
+        $user->save();
+        return redirect()->route('ims.users.index');
+
     }
 }

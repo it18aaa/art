@@ -21,7 +21,8 @@ class RoleController extends Controller
         {
             $user->roles()->attach($role);
         }
-        return redirect()->route('ims.users.index');
+        //return redirect()->route('ims.users.index');
+        return redirect()->back();
     }
 
     public function detach($role_id, $user_id)
@@ -33,6 +34,7 @@ class RoleController extends Controller
         {
             $user->roles()->detach($role);
         }
-        return redirect()->route('ims.users.index');
+        //return redirect()->route('ims.users.index');
+        return redirect()->back();
     }
 }

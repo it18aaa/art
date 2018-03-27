@@ -11,10 +11,14 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css" />    
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">      
+        
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
         <link href="{{ asset('css/gal.css') }}" rel="stylesheet"> 
 
+        
     </head>
     <body>
 
@@ -75,5 +79,7 @@
 
 
         <script src="{{ asset('js/app.js') }}"></script>
+
+        @yield('scripts')
     </body>
 </html>
