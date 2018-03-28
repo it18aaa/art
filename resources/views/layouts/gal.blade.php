@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">      
         
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         

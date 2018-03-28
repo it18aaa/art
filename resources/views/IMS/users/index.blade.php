@@ -74,10 +74,11 @@
                     <td >
                         {!!  Form::open([
                                 'route' => ['ims.users.destroy', $user->id],
+                                'class' => 'delete',
                                 'method' => 'delete'
                                 ])  
                         !!}
-                            <button type="submit" name="submit" class="delete btn btn-danger btn-sm">
+                            <button type="submit"  class="delete btn btn-danger btn-sm">
                                 <span class="fas fa-trash"></span> Delete
                             </button>
                         {!! Form::close() !!}
@@ -91,11 +92,26 @@
 
 
 @section('scripts')
-<script>
-    $(".delete").on("click", function() {        
-        return confirm("Do you want to delete this item?");
-    });
-</script>
 
+<script>
+$("form.delete").submit(function(e) {
+    e.preventDefault();
+    var thisForm = this;
+    swal({
+        title: "Delete User?",
+        text:  "You will not be able to recover this user",
+        type: "warning",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,            
+    }).then((willDelete) => {
+        if(willDelete) {
+            thisForm.submit();
+        } else {
+            return false;
+        }
+    });        
+});
+</script>
 
 @endsection
