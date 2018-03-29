@@ -11,18 +11,58 @@
         <h1>Edit Artist</h1>
         {!! Form::model($artist, ['route' => ['ims.artists.update', $artist->id], 'method' => 'PUT']) !!}
     @endif
-        
-        <div class="form-group">
-            {!! Form::label('firstname', 'Name') !!}            
+    
+        <div class="form-group row">
+            {!! Form::label('title', 'Title') !!}            
+            {!! Form::text('title', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('firstname', 'First name') !!}            
             {!! Form::text('firstname', null, ['class' => 'form-control']) !!}            
         </div>      
 
-        <div class="form-group">
-            {!! Form::label('lastname', 'Name') !!}            
+        <div class="form-group row">
+            {!! Form::label('lastname', 'Last name') !!}            
             {!! Form::text('lastname', null, ['class' => 'form-control']) !!}            
         </div>
 
-        <div class="form-group">
+        <div class="form-group row">
+            {!! Form::label('email', 'e-mail address') !!}            
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('address1', 'Address line 1') !!}            
+            {!! Form::text('address1', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('address2', 'Address line 2') !!}            
+            {!! Form::text('address2', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('town', 'Town or City') !!}            
+            {!! Form::text('town', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('county', 'County') !!}            
+            {!! Form::text('county', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('postcode', 'Postcode') !!}            
+            {!! Form::text('postcode', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
+            {!! Form::label('telephone', 'Telephone') !!}            
+            {!! Form::text('telephone', null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group row">
             {!! Form::label('bio', 'Biography') !!}
             {!! Form::textarea('bio', null, ['class' => 'form-control']) !!}            
         </div>

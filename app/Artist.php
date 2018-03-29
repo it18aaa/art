@@ -30,6 +30,11 @@ class Artist extends Model
         return $this->artworks()->count();
     }
 
+    public function countSold()
+    {
+        return $this->artworks()->where('sold', 1)->count();
+    }
+
     public function artworksPaginate($count = 0) 
     {
         if($count > 0) {

@@ -7,6 +7,13 @@ $factory->define(App\Artist::class, function (Faker $faker) {
         //
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
-        'bio' => $faker->realText
+        'title' => $faker->title,
+        'bio' => $faker->realText,
+        'email' => $faker->email,
+        'postcode' => $faker->postcode,
+        'telephone' => $faker->phoneNumber,
+        'address1' => $faker->buildingNumber . " " . $faker->streetName,
+        'county' => $faker->county,
+        'town' => $faker->city,
     ];
 });

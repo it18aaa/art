@@ -51,5 +51,6 @@ class UserTableSeeder extends Seeder
         $member->roles()->attach($role_member);
 
 
+        $stuff = factory(User::class, 20)->create(); 
     }
 }
