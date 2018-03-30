@@ -23,12 +23,17 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        $customer = new Customer();
+        $customer->validateAndSave($request);
 
+        return redirect()->route('ims.customers.index')
+            ->with('info', $customer->firstname . " " .
+                 $customer->lastname . " create.");
     }
 
     public function show(Customer $customer)
     {
-
+        // not yet implemented
     }
 
     public function edit(Customer $customer)
@@ -39,18 +44,16 @@ class CustomerController extends Controller
 
     public function update(Request $request, Customer $customer)
     {
-        $customer->firstname = $request->firstname;
-        $customer->lastname = $request->lastname;
-        $customer->save();
-
-        $name = $customer->firstname . " " . $customer->lastname;
+        $customer->validateAndSave($request);
 
         return redirect()->route('ims.customers.index')
-            ->with('info', $name . ' updated');
+            ->with('info', $customer->firstname ." ".
+                $customer->lastname . " updated.");
     }
 
     public function destroy(Customer $customer)
     {
-
+        Customer::destroy($customer->id);
+        return redirect()->back();
     }
 }

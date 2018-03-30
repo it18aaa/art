@@ -35,9 +35,7 @@
             </div>
             
         </div>
-        <div class="col-sm-6">
-            
-
+        <div class="col-sm-6">            
             <div class="form-group ">
                 {!! Form::label('email', 'e-mail address') !!}            
                 {!! Form::text('email', null, ['class' => 'form-control']) !!}            

@@ -22,8 +22,7 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
-        //    $artist = $this->validateArtist($request, new Artist());
-
+        
         $artist = new Artist();
         $artist->validateAndSave($request);
 
@@ -52,19 +51,14 @@ class ArtistController extends Controller
     {
         $artist->validateAndSave($request);
 
-        return redirect('/ims/artists')
-            ->with('info', $artist->firstname . " " .
-                 $artist->lastname . " updated. ");
-
-
         return redirect()->route('ims.artists.index')
             ->with('info', $artist->firstname . " " . $artist->lastname .  " modified successfully.");
     }
 
     public function destroy(Artist $artist)
     {
-        //stub
-        echo "Artist destroy() not yet implememtned";
+        Artist::destroy($artist->id);
+        return redirect()->back();
     }
 
 
