@@ -22,11 +22,7 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
-        $artist = new Artist();
-        $artist->firstname = $request->firstname;
-        $artist->lastname = $request->lastname;
-        $artist->bio = $request->bio;
-        $artist->save();
+        $artist = $this->validateArtist($request, new Artist());
 
         return redirect('/ims/artists')
             ->with('info', $artist->firstname . " " . $artist->lastname . " created. ");
@@ -49,13 +45,14 @@ class ArtistController extends Controller
             ->with('artist', $artist);
     }
 
-
     public function update(Request $request, Artist $artist)
     {
-        $artist->firstname = $request->firstname;
-        $artist->lastname = $request->lastname;
-        $artist->bio = $request->bio;
-        $artist->save();
+        $updated_artist = $this->validateArtist($request, $artist);
+
+        return redirect('/ims/artists')
+            ->with('info', $updated_artist->firstname . " " .
+                 $updated_artist->lastname . " updated. ");
+
 
         return redirect()->route('ims.artists.index')
             ->with('info', $artist->firstname . " " . $artist->lastname .  " modified successfully.");
@@ -66,4 +63,40 @@ class ArtistController extends Controller
         //stub
         echo "Artist destroy() not yet implememtned";
     }
+
+    private function validateArtist(Request $request, Artist $artist)
+    {
+        // refactored function
+
+        $data = $request->validate([
+            'title' => 'max:30',
+            'firstname' => 'required|string|max:100',
+            'lastname' => 'required|string|max:100',
+            'bio' => 'max:255',
+            'email' => 'string|email|max:50',
+            'address1' => 'string|max:50',
+            'address2' => 'string|max:50',
+            'town' => 'max:50',
+            'county' => 'max:30',
+            'postcode' => 'max:15',
+            'telephone' => 'string|max:50',
+        ]);
+
+        $artist->title = $data['title'];
+        $artist->firstname   = $data['firstname'];
+        $artist->lastname   = $data['lastname'];
+        $artist->bio   = $data['bio'];
+        $artist->email   = $data['email'];
+        $artist->address1   = $data['address1'];
+        $artist->address2   = $data['address2'];
+        $artist->town   = $data['town'];
+        $artist->county   = $data['county'];
+        $artist->postcode   = $data['postcode'];
+        $artist->telephone = $data['telephone'];
+        $artist->save();
+
+        return $artist;
+    }
+
+
 }

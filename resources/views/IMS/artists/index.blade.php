@@ -13,10 +13,9 @@
         </div>
         <div class="col-sm-4 text-right">
             <a href="{{ route('ims.artists.create') }}" class="btn btn-success ">
-                <span class="fas fa-user-plus"></span> Add User
+                <span class="fas fa-user-plus"></span> Add Artist
             </a>
         </div>
-
     </div>
 
 
