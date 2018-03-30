@@ -18,7 +18,6 @@
         </div>
     </div>
 
-
     <div class="row">
         <table class="table table-striped table-hover table-sm" >
             <thead class="table-sm">
@@ -69,15 +68,11 @@
         <div class="row">
             <div class="col-sm-6">
                 {{  $artists->links() }} <br />
-                Total: {{ $artists->total() }}
+                
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <ul>
-            <li><a href="/ims/artists/create">create new artist</a></li>
-        </ul>
-    </div>
+    
 </div>
 
 @endsection
