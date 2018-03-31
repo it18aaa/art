@@ -8,80 +8,45 @@ use App\Http\Controllers\Controller;
 
 class ArtworkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        // 
-        return view('IMS.artwork.index');
+        
+        return view('IMS.artworks.index')
+            ->with('artworks', Artwork::paginate(15));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('IMS.artworks.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
-    }
+        $artwork = new Artwork();
+        $artwork->validateAndSave($request);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
+        return redirect()->route('ims.artworks.index')
+            ->with('info', $artwork->name . "created.");
+    }
+    
     public function show(Artwork $artwork)
     {
         //
+        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Artwork $artwork)
     {
-        //
+        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Artwork $artwork)
     {
-        //
+        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Artwork $artwork)
     {
-        //
+        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
     }
 }

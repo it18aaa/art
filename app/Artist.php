@@ -77,6 +77,20 @@ class Artist extends Model
         $this->save();
     }
 
+    public static function orderAndListAll() 
+    {
+        $allArtists = Artist::orderBy('lastname')->get();
+
+        $artist_array = array();
+
+        foreach($allArtists as $artist) 
+        {
+            $artist_array[$artist->id] = $artist->firstname . " " . $artist->lastname;
+        }
+
+        return $artist_array;
+
+    }
 
 
 

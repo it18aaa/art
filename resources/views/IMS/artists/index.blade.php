@@ -26,7 +26,7 @@
                 <th>Artworks</th>
                 <th>Sold</th>
             </thead>
-            
+            <tbody>
         @foreach($artists as $artist)
             <tr>
                 <td>
@@ -64,6 +64,7 @@
                
             </tr>
         @endforeach
+        </tbody>
         </table>
         <div class="row">
             <div class="col-sm-6">
