@@ -32,7 +32,16 @@
             <div class="row" >
                 <div class="col-sm-2" >
                     <div class="col-sm-2" id="sticky-sidebar" >            
-                        @section('sidebar')                                                        
+                        @section('sidebar')   
+                        @if( null !==  Auth::user())
+                                @if (Auth::user()->hasRole('cms'))                                    
+                                @endif
+                                @if (Auth::user()->hasRole('ims'))                                    
+                                    @include('partials.imsleft')                                    
+                                @endif                                    
+                            @else                                
+                            @endif
+
                         @show
                     </div>
                 </div>

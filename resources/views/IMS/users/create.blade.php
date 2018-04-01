@@ -1,6 +1,10 @@
 @extends('layouts.gal')
 
-    @section('content')
+@section('title', 'IMS User Management')
+
+
+
+@section('content')
         
     <div class="row">
 

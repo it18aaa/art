@@ -1,5 +1,7 @@
 @extends('layouts.gal')
 
+@section('title', 'IMS User Management')
+
 
 @section('content')
 

@@ -1,5 +1,9 @@
 @extends('layouts.gal')
 
+@section('title', 'IMS Artwork')
+
+
+
 @section('content')
 
 <h1>Artworks</h1>

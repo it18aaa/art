@@ -22,6 +22,7 @@ class ArtworkController extends Controller
     
     public function store(Request $request)
     {
+        //dd($request);
         $artwork = new Artwork();
         $artwork->validateAndSave($request);
 

@@ -4,6 +4,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use \Conner\Tagging\Taggable;
 use App\Artist;
 
@@ -23,13 +24,12 @@ class Artwork extends Model
             'name' => 'required|string|max:100',
             'price' => 'required|integer',            
             'artist' => 'required|integer',
-            'sold' => 'required',
-            'pricepublic' => 'required',
+            'sold' => 'boolean',
+            'pricepublic' => 'boolean',
             'description' => 'string|max:255',
             'w' => 'integer',
             'h' => 'integer',
             'd' => 'integer',
-
         ]);
 
         $this->name =       $data['name'];

@@ -1,5 +1,7 @@
 @extends('layouts.gal')
 
+@section('title', 'IMS Customers')
+
 @section('content')
 
     @if(!isset($customer))

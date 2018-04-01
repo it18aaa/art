@@ -21,8 +21,7 @@ class ArtistController extends Controller
     }
 
     public function store(Request $request)
-    {
-        
+    {        
         $artist = new Artist();
         $artist->validateAndSave($request);
 

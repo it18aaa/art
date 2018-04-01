@@ -2,11 +2,6 @@
 
 @section('title', 'IMS Dashboard')
 
-
-@section('sidebar')
-    @parent    
-@endsection
-
 @section('content')
     <h1>Information Management System</h1>
 
