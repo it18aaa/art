@@ -21,11 +21,13 @@ class CreateArtworksTable extends Migration
             $table->boolean('pricepublic');        
             
             $table->unsignedInteger('artist_id');
-            $table->string('description')->default('');
-            $table->integer('w')->default(0);
-            $table->integer('h')->default(0);
-            $table->integer('d')->default(0);
+            $table->string('description')->nullable()->default('');
+            $table->integer('width')->default(0);
+            $table->integer('height')->default(0);
+            $table->integer('depth')->default(0);
             $table->timestamps();
+
+            $table->foreign('artist_id')->references('id')->on('artists');
         });
     }
 

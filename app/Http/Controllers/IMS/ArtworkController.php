@@ -27,7 +27,7 @@ class ArtworkController extends Controller
         $artwork->validateAndSave($request);
 
         return redirect()->route('ims.artworks.index')
-            ->with('info', $artwork->name . "created.");
+            ->with('info', $artwork->name . " created.");
     }
     
     public function show(Artwork $artwork)
@@ -38,16 +38,23 @@ class ArtworkController extends Controller
 
     public function edit(Artwork $artwork)
     {
-        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+        //echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+        return view('IMS.artworks.create')
+            ->with('artwork', $artwork);
+
+
     }
 
     public function update(Request $request, Artwork $artwork)
     {
-        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+        $artwork->validateAndSave($request);
+        return redirect()->route('ims.artworks.index')
+            ->with('info', $artwork->name . " updated");
     }
 
     public function destroy(Artwork $artwork)
     {
-        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+        Artwork::destroy($artwork->id);
+        return redirect()->back();
     }
 }

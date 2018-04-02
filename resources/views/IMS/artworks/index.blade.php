@@ -35,7 +35,11 @@
                 @foreach($artworks as $artwork)
                 <tr>
                     <td>{{ $artwork->id }}</td>
-                    <td>{{ $artwork->name }}</td>
+                    <td>
+                        <strong>{{ $artwork->name }}</strong><br />
+                        {{ $artwork->artist->firstname . " " . $artwork->artist->lastname }}
+
+                    </td>
                     <td>
                         {{ count($artwork->tagNames()) }}
                     </td>

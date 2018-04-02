@@ -9,14 +9,28 @@
 
     @if(!isset($artwork))
         <h1>Create Artwork</h1>
-        {!! Form::open(['route' => 'ims.artworks.store'])   !!}
+        {!! Form::open(['route' => 'ims.artworks.store'])  !!}
+        @php 
+            $artist = null; 
+            $default_dimension = 0;           
+        @endphp
     @else
         <h1>Edit Artwork</h1>
         {!! Form::model($artwork, ['route' => ['ims.artworks.update', $artwork->id], 'method' => 'PUT']) !!}
+        @php 
+            $artist = $artwork->artist_id;
+            $default_dimension = null;
+        @endphp
     @endif
 
         <div class="row">
             <div class="col-sm-6">
+                @isset($artwork)
+                <div class="form-group">
+                        {!! Form::label('id', 'id') !!}                    
+                        {!! Form::text('id', null, ['disabled','class' => 'form-control']) !!}            
+                </div>  
+                @endisset
                 <div class="form-group">
                         {!! Form::label('name', 'Name of piece') !!}                    
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}            
@@ -59,21 +73,21 @@
                 <div class="row">                
                         <div class="col-sm-4">
                             <div class="form-group ">
-                                {!! Form::label('w', 'Width:') !!}
-                                {!! Form::text('w', 0, ['class' => 'form-control']) !!}
+                                {!! Form::label('width', 'Width:') !!}
+                                {!! Form::text('width', $default_dimension, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                             
                         <div class="col-sm-4">
                             <div class="form-group ">
-                                {!! Form::label('h', 'Height:') !!}
-                                {!! Form::text('h', 0, ['class' => 'form-control']) !!}
+                                {!! Form::label('height', 'Height:') !!}
+                                {!! Form::text('height', $default_dimension, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group ">
-                                {!! Form::label('d', 'Depth:') !!}
-                                {!! Form::text('d', 0, ['class' => 'form-control']) !!}
+                                {!! Form::label('depth', 'Depth:') !!}
+                                {!! Form::text('depth', $default_dimension, ['class' => 'form-control']) !!}
                             </div>
                         </div>                
                 </div>
@@ -91,7 +105,7 @@
                 <div class="form-group">
                     {!! Form::label('artist', 'Artist') !!}
                     {!! Form::select('artist', App\Artist::orderAndListAll(), 
-                        null, ['size' => '7', 'class' => 'form-control'] ) !!}
+                        $artist, ['class' => 'form-control'] ) !!}
                 </div>
                 
             </div>

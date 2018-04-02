@@ -26,10 +26,10 @@ class Artwork extends Model
             'artist' => 'required|integer',
             'sold' => 'boolean',
             'pricepublic' => 'boolean',
-            'description' => 'string|max:255',
-            'w' => 'integer',
-            'h' => 'integer',
-            'd' => 'integer',
+            'description' => 'nullable|string|max:255',
+            'width' => 'integer',
+            'height' => 'integer',
+            'depth' => 'integer',
         ]);
 
         $this->name =       $data['name'];
@@ -38,9 +38,9 @@ class Artwork extends Model
         $this->sold =         $data['sold'];
         $this->pricepublic =  $data['pricepublic'];
         $this->description = $data['description'];      
-        $this->w =      $data['w'];
-        $this->h =    $data['h'];
-        $this->d =   $data['d'];
+        $this->width =      $data['width'];
+        $this->height =    $data['height'];
+        $this->depth =   $data['depth'];
 
         $this->save();
 

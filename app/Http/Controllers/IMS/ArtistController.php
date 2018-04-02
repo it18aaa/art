@@ -56,7 +56,21 @@ class ArtistController extends Controller
 
     public function destroy(Artist $artist)
     {
-        Artist::destroy($artist->id);
+        try {
+            Artist::destroy($artist->id);
+        } catch (\Exception $e) {
+           //dd($e);
+           // it is likely this deleteion has tried to break
+           // referential integrity, so retreat gracefully,
+           // showing a nice user friendly message
+            $message = "Unable to remove " . 
+                $artist->firstname . " " . $artist->lastname. 
+                ", does this artist have any artworks?";
+
+           return redirect()->back()->with('warning', $message);
+        }
+
+
         return redirect()->back();
     }
 

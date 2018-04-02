@@ -27,6 +27,7 @@ class CreateArtistsTable extends Migration
             $table->string('email')->nullable(true);
             $table->text('bio')->nullable(true);;
             $table->timestamps();
+            
         });
     }
 
