@@ -62,12 +62,19 @@
                             <span class="fas fa-eye"></span> View
                     </a>
 
-                    <td><a class="btn btn-secondary btn-sm " 
+                    <td><a class="btn btn-secondary 
+                        @if($artwork->sold)
+                            disabled
+                        @endif
+                        btn-sm " 
                        href="artworks/{{ $artwork->id }}/edit">
+                       
+                       
                             <span class="fas fa-edit"></span> Edit
                     </a>
                 </td>  
                     <td >
+
                     {!!  Form::open([
                             'route' => ['ims.artworks.destroy', $artwork->id],
                             'class' => 'delete',
@@ -75,8 +82,12 @@
                             ])  
                     !!}
                         <button type="submit"  
-                                class="delete btn btn-danger btn-sm">
-                            <span class="fas fa-trash"></span> Delete
+                                class="delete btn btn-danger btn-sm" 
+                            @if($artwork->sold)
+                                disabled
+                            @endif 
+                            >
+                                <span class="fas fa-trash"></span> Delete
                         </button>
                     {!! Form::close() !!}
                 </td>
