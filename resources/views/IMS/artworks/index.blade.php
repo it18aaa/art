@@ -25,11 +25,12 @@
         <table class="table table-striped table-hover table-sm" >
             <thead class="table-sm">
                 <th>ID</th>
-                <th>Name</th>                              
-                <th>tags</th>
+                <th>Name<br />& Artist</th>                              
+                <th>Tags</th>
                 <th>Sold</th> 
-                <th>List<br />price is</th>
-                <th>price<br />public</th>
+                <th>List<br />price</th>
+                <th>Price<br />public</th>
+                <th>Dimensions</th>
             </thead>
             <tbody>
                 @foreach($artworks as $artwork)
@@ -57,19 +58,23 @@
                         @endif
                     </td>
 
+                    <td>
+                        @if($artwork->width >0 && $artwork->height > 0 )
+                            {{ $artwork->width }} x {{$artwork->height}}
+                        @endif
+                    </td>
+
                     <td><a class="btn btn-secondary btn-sm " 
                        href="artworks/{{ $artwork->id }}">
                             <span class="fas fa-eye"></span> View
                     </a>
 
                     <td><a class="btn btn-secondary 
-                        @if($artwork->sold)
+                    @if($artwork->sold && strtolower(Auth::user()->name) != 'admin' )
                             disabled
                         @endif
                         btn-sm " 
-                       href="artworks/{{ $artwork->id }}/edit">
-                       
-                       
+                       href="artworks/{{ $artwork->id }}/edit">                                              
                             <span class="fas fa-edit"></span> Edit
                     </a>
                 </td>  
@@ -83,7 +88,7 @@
                     !!}
                         <button type="submit"  
                                 class="delete btn btn-danger btn-sm" 
-                            @if($artwork->sold)
+                            @if($artwork->sold )
                                 disabled
                             @endif 
                             >
