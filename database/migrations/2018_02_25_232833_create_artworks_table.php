@@ -15,6 +15,7 @@ class CreateArtworksTable extends Migration
     {
         Schema::create('artworks', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sale_id')->nullable()->default(null);
             $table->string('name');            
             $table->integer('price');
             $table->boolean('sold');

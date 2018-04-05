@@ -18,6 +18,11 @@ class Artwork extends Model
         return $this->belongsTo('App\Artist');
     }
 
+    public function sale()
+    {
+        return $this->belongsTo('App\Sale');
+    }
+
     public function validateAndSave(Request $request) 
     {
         $data = $request->validate([            

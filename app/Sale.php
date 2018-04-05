@@ -11,4 +11,10 @@ class Sale extends Model
     {
         return $this->belongsTo('App\Customer');
     }
+
+    public function artworks()
+    {
+        return $this->hasMany('App\Artwork');
+    }
+
 }

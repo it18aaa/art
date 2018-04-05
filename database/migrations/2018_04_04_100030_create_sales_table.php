@@ -10,11 +10,11 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('basket_id');
+            $table->increments('id');            
             $table->integer('customer_id');
             $table->decimal('sale_price', 8, 2);            
-            $table->timestamp('sale_date');            
+            $table->timestamp('sale_date');    
+            $table->boolean('sale_fulfilled');
             $table->timestamps();
             
         });        
