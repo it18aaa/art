@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class Customer extends Model
 {
     //
-
+    public function sales()
+    {
+        return $this->hasMany('App\Sale');
+    }
 
     public function validateAndSave(Request $request)
     {
