@@ -11,12 +11,11 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');            
-            $table->integer('customer_id');
-            $table->decimal('sale_price', 8, 2);            
+            $table->integer('customer_id')->nullable()->default(null);
+            $table->decimal('sale_price', 8, 2)->nullable()->default(0.0);            
             $table->timestamp('sale_date');    
-            $table->boolean('sale_fulfilled');
-            $table->timestamps();
-            
+            $table->boolean('sale_fulfilled')->default(false);
+            $table->timestamps();            
         });        
     }
 

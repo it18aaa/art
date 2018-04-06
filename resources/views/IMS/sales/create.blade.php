@@ -1,19 +1,15 @@
 @extends('layouts.gal')
 
-@section('title', 'IMS Create a Sale')
+@section('title', 'IMS Sales')
 
 @section('content')
 
-<h1>Create a sale</h1>
+<h2>Order details</h2>
 
-
-
-
-
-
-
-
-
-
+    @if( !isset($sale) )
+        @include('IMS.sales.chooseCustomer')                    
+    @else
+        @include('IMS.sales.chooseArtwork')                    
+    @endif
 
 @endsection

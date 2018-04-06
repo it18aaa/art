@@ -5,6 +5,8 @@ namespace App\Http\Controllers\IMS;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Artwork;
+use App\Customer;
+use App\Sale;
 
 class SaleController extends Controller
 {
@@ -19,8 +21,10 @@ class SaleController extends Controller
     {        
         // create a sale, show a paginateable list of customers 
         
-        
-        return view('IMS.sales.create');
+        $customers = Customer::orderBy('lastname')->paginate(10);
+                
+        return view('IMS.sales.create')
+            ->with('customers' , $customers);
     }
 
 
@@ -30,8 +34,15 @@ class SaleController extends Controller
         //  store the sale, which is attached to a customer
         // switch to edit mode to add and remove art
 
+        $data = $request->validate([
+            'customer_id'=> 'integer|required',
+        ]);
 
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        $sale = new Sale();
+        $sale->customer_id = $data['customer_id'];
+        $sale->save();
+
+        return redirect()->route('ims.sales.edit', ['sale' => $sale->id] );
     }
 
 
@@ -42,12 +53,17 @@ class SaleController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Sale $sale)
     {
-        //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
-    }
 
+        $artworks = Artwork::where('sale_id', null)->orderBy('name')->paginate(8);
+        
+        return view('IMS.sales.create')
+            ->with([
+                    'sale' => $sale,
+                    'artworks' => $artworks,                   
+                ]);
+    }
 
     public function update(Request $request, $id)
     {
@@ -64,13 +80,17 @@ class SaleController extends Controller
 
     public function addArtwork(Sale $sale, Artwork $artwork)
     {
-        $sale->artworks->push($artwork);
+        
+        $artwork->sale_id = $sale->id;
+        $artwork->save();
         return redirect()->back();
     }
 
     public function removeArtwork(Sale $sale, Artwork $artwork)
     {
-        $sale->forget($artwork);
+        $artwork->sale_id = null;
+        $artwork->save();
+
         return redirect()->back();
     }
 }

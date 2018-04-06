@@ -17,4 +17,23 @@ class Sale extends Model
         return $this->hasMany('App\Artwork');
     }
 
+    public function calcTotalExVat()
+    {
+        $total = 0;
+        foreach($this->artworks as $artwork)
+        {
+            $total += $artwork->price;
+        }
+        return $total;
+    }
+
+    public function calcVat() 
+    {
+        return $this->calcTotalExVat() * 0.2;
+    }
+
+    public function calcTotalIncVat() 
+    {
+        return $this->calcTotalExVat + $this->calcVat();
+    }
 }

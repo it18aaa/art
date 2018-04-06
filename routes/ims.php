@@ -20,8 +20,12 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::resource('artists', 'IMS\ArtistController');
 
         Route::resource('sales', 'IMS\SaleController');
-        Route::post('sales/{sale}/{artwork}', 'IMS\SaleController@addArtwork');
-        Route::delete('sales/{sale}/{artwork}', 'IMS\SaleController@removeArtwork');
+
+        Route::post('sales/{sale}/{artwork}', 'IMS\SaleController@addArtwork')
+            ->name('sales.addArtwork');
+
+        Route::delete('sales/{sale}/{artwork}', 'IMS\SaleController@removeArtwork')
+            ->name('sales.removeArtwork');
        
 
     });
