@@ -36,4 +36,9 @@ class Sale extends Model
     {
         return $this->calcTotalExVat + $this->calcVat();
     }
+
+    public function itemCount()
+    {
+        return $this->artworks->count();
+    }
 }

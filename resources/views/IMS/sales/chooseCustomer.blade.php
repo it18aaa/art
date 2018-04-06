@@ -1,6 +1,6 @@
 <h3>Please choose a customer</h3>
 
-    <table class="table">
+    <table class="table table-sm">
     <thead>
         <tr>
             <td>ID</td>

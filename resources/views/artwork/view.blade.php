@@ -17,9 +17,18 @@
     <div>by {{ $artwork->artist->firstname . " " .$artwork->artist->lastname }}</div>
 
     <div>
-        @if($artwork->pricepublic)        
+    @if($artwork->sale_id != null && !$artwork->sold)
+        <h3>under offer</h3>
+    @elseif($artwork->sold)
+        <h3>sold</h3>
+    @endif
+    
+    </div>
+
+    <div>
+        @if($artwork->pricepublic && !$artwork->sold)        
                 £{{ $artwork->price }}        
-        @else
+        @elseif(!$artwork->sold)
             (Please enquire about price)
         @endif
     </div>  
