@@ -14,7 +14,9 @@ class CreateSalesTable extends Migration
             $table->integer('customer_id')->nullable()->default(null);
             $table->decimal('sale_price', 8, 2)->nullable()->default(0.0);            
             $table->timestamp('sale_date');    
-            $table->boolean('sale_fulfilled')->default(false);
+            $table->boolean('fulfilled')->default(false);
+            $table->boolean('paid')->default(false);
+            $table->text('notes')->nullable()->default(null);
             $table->timestamps();            
         });        
     }

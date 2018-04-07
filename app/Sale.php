@@ -34,7 +34,7 @@ class Sale extends Model
 
     public function calcTotalIncVat() 
     {
-        return $this->calcTotalExVat + $this->calcVat();
+        return $this->calcTotalExVat() + $this->calcVat();
     }
 
     public function itemCount()

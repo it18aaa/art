@@ -93,4 +93,20 @@ class SaleController extends Controller
 
         return redirect()->back();
     }
+
+    public function close(Sale $sale)
+    {
+        $sale->fulfilled = true;
+        $sale->save();
+
+        return redirect()->back();
+    }
+
+    public function pay(Sale $sale)
+    {
+        $sale->paid = true;
+        $sale->save();
+
+        return redirect()->back();
+    }
 }

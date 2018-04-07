@@ -6,7 +6,7 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
        
     return [
         //
-        'name' => $faker->word . " " . $faker->word,      
+        'name' => ucfirst($faker->word . " " . $faker->word),      
         'price' => $faker->numberBetween(50,10000),
         'sold' => $faker->boolean,
         'pricepublic' => $faker->boolean,
