@@ -75,7 +75,8 @@ class SaleController extends Controller
     public function destroy($id)
     {
         //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        Sale::destroy($sale->id);
+        return redirect()->back(); 
     }
 
     public function addArtwork(Sale $sale, Artwork $artwork)
@@ -94,19 +95,22 @@ class SaleController extends Controller
         return redirect()->back();
     }
 
-    public function close(Sale $sale)
+    public function complete($id)
     {
+        
+        $sale = Sale::find($id);
         $sale->fulfilled = true;
         $sale->save();
-
         return redirect()->back();
+      
     }
 
-    public function pay(Sale $sale)
+    public function pay($id)
     {
-        $sale->paid = true;
-        $sale->save();
+       $sale  = Sale::find($id);
+       $sale->paid = true;
+       $sale->save();
 
-        return redirect()->back();
+       return redirect()->back();
     }
 }

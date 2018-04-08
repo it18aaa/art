@@ -46,19 +46,26 @@
                         @if(!$sale->paid)
                         Customer has not yet paid:                         
                             {!! Form::open([
-                                    'route' => ['ims.sales.pay', $sale->id],                            
-                                    'method' => 'post'
-                                ])  
+                                'route' => ['ims.sales.pay', $sale->id], 
+                                'method' => 'put'])  
                             !!}
+                            {!! Form::label('amount', 'Amount') !!}
+                            {!! Form::text('amount', $sale->calcTotalIncVat()) !!}
+
                                 <button type="submit" class="btn btn-default btn-sm">                            
-                                    <span class="fas fa-pound-sign"></span> Pay
-                                </button>
+                                    <span class="fas fa-pound-sign"></span> Pay                                </button>
                             {!! Form::close() !!}                 
-                              
+
                         @elseif($sale->paid && !$sale->fulfilled)
-                            <a href="#" class="btn btn-primary">Close order</a>    
+                            {!! Form::open([
+                                    'route' => ['ims.sales.complete', $sale->id], 
+                                    'method' => 'put'])  
+                                !!}
+                                <button type="submit" class="btn btn-default btn-sm">                            
+                                    <span class="fas fa-cross"></span>Complete order                                </button>
+                            {!! Form::close() !!}   
                         @else
-                            Order has been paid and is closed.
+                            Order has been paid and is completed.
                         @endif
                     </div>
 

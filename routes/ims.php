@@ -27,13 +27,11 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::delete('sales/{sale}/{artwork}', 'IMS\SaleController@removeArtwork')
             ->name('sales.removeArtwork');
 
-        Route::post('sales/{sale}/close', 'IMS\SaleController@close')
-            ->name('sales.close');
-            
-        Route::post('sales/{sale}/pay', 'IMS\SaleController@pay')
-            ->name('sales.pay');
-
-    });
+        Route::put('sales/{id}/complete', 'IMS\SaleController@complete')->name('sales.complete');
+        
+        Route::put('sales/{id}/pay', 'IMS\SaleController@pay')->name('sales.pay');
+    
+    }); 
 });
     
 
