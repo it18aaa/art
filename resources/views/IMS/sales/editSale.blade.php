@@ -103,7 +103,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default btn-sm">                            
+                                <button type="submit" class="btn btn-default btn-block">                            
                                     <span class="fas fa-pound-sign"></span> Pay   
                                                                  </button>
                             </div>
@@ -121,7 +121,7 @@
 
 
 
-                                <button type="submit" class="btn btn-success btn-sm">                            
+                                <button type="submit" class="btn btn-success btn-block">                            
                                     <span class="fas fa-check"></span> Complete order                                </button>
                             {!! Form::close() !!}   
                         @else
@@ -142,8 +142,8 @@
                                 'method' => 'delete'])  
                             !!}                            
 
-                                <button type="submit" class="btn btn-danger btn-sm pull-right">                            
-                                    <span class="fas fa-trash"></span> Delete                                </button>
+                                <button type="submit" class="btn btn-warning btn-block pull-right">                            
+                                    <span class="fas fa-trash"></span> Cancel                                </button>
                             {!! Form::close() !!}                 
                         @endif
                     </div>

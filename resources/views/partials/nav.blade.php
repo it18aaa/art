@@ -1,6 +1,7 @@
 @if( null !==  Auth::user())
     @if (Auth::user()->hasRole('cms') || Auth::user()->hasRole('ims'))
-        <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark bg-dark" >
+        <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark" 
+            style="background-color: #884444">
     @endif
 @else
     <nav class="navbar navbar-expand-md navbar-expand-sm navbar-light navbar-faded ">    
@@ -33,3 +34,4 @@
                     </div>
                 </div>
             </nav>
+            <br />

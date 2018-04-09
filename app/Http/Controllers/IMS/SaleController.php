@@ -13,7 +13,21 @@ class SaleController extends Controller
 
     public function index()
     {
-        return view('IMS.sales.index');
+        
+        $countComplete = Sale::where('fulfilled',true)
+                            ->count();
+        $countPaid = Sale::where('fulfilled', false)
+                        ->where('paid', true)
+                        ->count();
+        $countUnpaid = Sale::where('paid', false)
+                            ->count();
+
+        
+        return view('IMS.sales.index')->with([
+            'countComplete' => $countComplete,                
+            'countPaid' => $countPaid,
+            'countUnpaid' => $countUnpaid,                
+        ]);
     }
 
     public function indexComplete() {
@@ -25,7 +39,9 @@ class SaleController extends Controller
             ->paginate(10);
 
         return view('IMS.sales.indexSales')
-            ->with('sales', $sales);
+            ->with([
+                'sales'=> $sales,
+                'title'=> 'Completed orders']);
     }
 
     public function indexUnpaid() {
@@ -36,7 +52,9 @@ class SaleController extends Controller
             ->paginate(10);
 
         return view('IMS.sales.indexSales')
-            ->with('sales', $sales);
+            ->with(([
+                'sales'=> $sales,
+                'title'=> 'Unpaid orders']));
     }
 
     public function indexPaid() 
@@ -48,7 +66,9 @@ class SaleController extends Controller
             ->paginate(10);
 
         return view('IMS.sales.indexSales')
-            ->with('sales', $sales);
+            ->with(([
+                'sales'=> $sales,
+                'title'=> 'Paid but incomplete orders']));
     }
 
     public function create()

@@ -3,11 +3,13 @@
 @section('title', 'IMS Sales')
 
 @section('content')
+    <h3>{{$title}}</h3>
     <table class="table">
     <thead>
     <th>Sale ID:</th>
     <th>Customer ID:</th>
     <th>Customer Name:</th>    
+    <th>Items</th>
     <th>Order Value</th>
     <th>Date</th>
     <th>Paid</th>
@@ -17,11 +19,14 @@
     @foreach($sales as $sale)
         <tr>            
             <td>{{ $sale->id }} </td>
-            <td>{{ $sale->customer->firstname }}</td>
-            <td>{{ $sale->customer->lastname }}</td>            
-            @if($sale->paid)
-                <td>£{{ number_format($sale->sale_price) }}</td>
+            <td>{{ $sale->customer->id }}</td>
+            <td>{{ $sale->customer->firstname }} {{ $sale->customer->lastname }}</td>
+            <td>{{ $sale->artworks->count() }}</td>
+            <td>      
+            @if($sale->paid)            
+                £{{ number_format($sale->sale_price) }}            
             @endif
+            </td>
             <td>{{ $sale->sale_date }}</td>
             <td>{{ $sale->paid }}</td>
             <td>{{ $sale->fulfilled }}</td>
@@ -37,6 +42,7 @@
         </tr>            
     @endforeach
     </table>
+    {{ $sales->links() }}
 @endsection
 
 
