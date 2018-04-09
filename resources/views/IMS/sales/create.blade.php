@@ -9,7 +9,7 @@
     @if( !isset($sale) )
         @include('IMS.sales.chooseCustomer')                    
     @else
-        @include('IMS.sales.chooseArtwork')                    
+        @include('IMS.sales.editSale')                    
     @endif
 
 @endsection

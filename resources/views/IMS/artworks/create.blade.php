@@ -16,7 +16,9 @@
         @endphp
     @else
         <h1>Edit Artwork</h1>
-        {!! Form::model($artwork, ['route' => ['ims.artworks.update', $artwork->id], 'method' => 'PUT']) !!}
+        {!! Form::model($artwork, [
+            'route' => ['ims.artworks.update', $artwork->id], 
+            'method' => 'PUT']) !!}
         @php 
             $artist = $artwork->artist_id;
             $default_dimension = null;

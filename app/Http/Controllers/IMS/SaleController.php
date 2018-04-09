@@ -16,6 +16,40 @@ class SaleController extends Controller
         return view('IMS.sales.index');
     }
 
+    public function indexComplete() {
+
+        //echo "index complete() "; die();
+
+        $sales = Sale::where('fulfilled', true)
+            ->orderBy('sale_date')
+            ->paginate(10);
+
+        return view('IMS.sales.indexSales')
+            ->with('sales', $sales);
+    }
+
+    public function indexUnpaid() {
+
+        //echo "index unpaid "; die();
+        $sales = Sale::where('paid', false)
+            ->orderBy('sale_date')
+            ->paginate(10);
+
+        return view('IMS.sales.indexSales')
+            ->with('sales', $sales);
+    }
+
+    public function indexPaid() 
+    {        
+        //echo "index paid()"; die();
+        $sales = Sale::where('paid', true)
+            ->where('fulfilled', false)
+            ->orderBy('sale_date')
+            ->paginate(10);
+
+        return view('IMS.sales.indexSales')
+            ->with('sales', $sales);
+    }
 
     public function create()
     {        
@@ -43,20 +77,21 @@ class SaleController extends Controller
         $sale->save();
 
         return redirect()->route('ims.sales.edit', ['sale' => $sale->id] );
+        
     }
 
 
     public function show($id)
     {
-        //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        // reroute to edit, not required ?        
     }
 
 
-    public function edit(Sale $sale)
+    public function edit($id)
     {
 
         $artworks = Artwork::where('sale_id', null)->orderBy('name')->paginate(8);
+        $sale = Sale::find($id);        
         
         return view('IMS.sales.create')
             ->with([
@@ -67,21 +102,29 @@ class SaleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
-        echo __CLASS__ . " - " . __FUNCTION__ . " not yet implemented ";
+        // not required
     }
 
 
     public function destroy($id)
     {
-        //
-        Sale::destroy($sale->id);
-        return redirect()->back(); 
+        
+        $artworks = Artwork::where('sale_id', $id)->get();
+
+        foreach($artworks as $artwork)
+        {
+            $artwork->sale_id = null;
+            $artwork->sold = false;
+            $artwork->save();
+        }
+
+        $sale = Sale::find($id);        
+        Sale::destroy($sale);        
+        return redirect()->route('ims.sales.index') ;
     }
 
     public function addArtwork(Sale $sale, Artwork $artwork)
-    {
-        
+    {        
         $artwork->sale_id = $sale->id;
         $artwork->save();
         return redirect()->back();
@@ -91,26 +134,28 @@ class SaleController extends Controller
     {
         $artwork->sale_id = null;
         $artwork->save();
-
         return redirect()->back();
     }
 
-    public function complete($id)
-    {
-        
+    public function complete($id, Request $request )
+    {    
         $sale = Sale::find($id);
         $sale->fulfilled = true;
+        $sale->notes = $request->notes;
         $sale->save();
-        return redirect()->back();
-      
+        return redirect()->back();      
     }
 
-    public function pay($id)
+    public function pay($id, Request $request)
     {
+
+        // requires validation
+
        $sale  = Sale::find($id);
        $sale->paid = true;
+       $sale->sale_price = $request->amount;
+       $sale->notes = $request->notes;
        $sale->save();
-
        return redirect()->back();
     }
 }
