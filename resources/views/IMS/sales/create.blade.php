@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h2>Order details</h2>
+<h2>Sales Order</h2>
 
     @if( !isset($sale) )
         @include('IMS.sales.chooseCustomer')                    

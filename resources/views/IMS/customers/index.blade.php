@@ -37,7 +37,12 @@
                     <strong> {{  $customer->firstname  }} {{  $customer->lastname  }} </strong><br />
                     {{ $customer->email }}
                 </td>
-                
+                <td><a class="btn btn-secondary btn-sm " 
+                       href="{{ route('ims.sales.index.customer', $customer->id) }}">
+                            <span class="fas fa-file-alt"></span> Orders
+                    </a>
+                </td>  
+
                 <td><a class="btn btn-secondary btn-sm " 
                        href="customers/{{ $customer->id }}/edit">
                             <span class="fas fa-edit"></span> Edit

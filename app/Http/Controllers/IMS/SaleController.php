@@ -66,9 +66,25 @@ class SaleController extends Controller
             ->paginate(10);
 
         return view('IMS.sales.indexSales')
-            ->with(([
+            ->with([
                 'sales'=> $sales,
-                'title'=> 'Paid but incomplete orders']));
+                'title'=> 'Paid but incomplete orders'
+            ]);
+    }
+
+    public function indexCustomer($id)
+    {   
+        $customer = Customer::find($id);        
+
+        $sales = Sale::where('customer_id', $id)
+            ->paginate(10);
+
+        return view('IMS.sales.indexSales')
+            ->with([
+                'sales' =>$sales,
+                'title' => $customer->firstname ." ". $customer->lastname. " orders",
+            ]);
+
     }
 
     public function create()
@@ -126,10 +142,9 @@ class SaleController extends Controller
     }
 
 
-    public function destroy($id)
-    {
-        
-        $artworks = Artwork::where('sale_id', $id)->get();
+    public function destroy(Sale $sale)
+    {        
+        $artworks = Artwork::where('sale_id', $sale->id)->get();
 
         foreach($artworks as $artwork)
         {
@@ -138,8 +153,8 @@ class SaleController extends Controller
             $artwork->save();
         }
 
-        $sale = Sale::find($id);        
-        Sale::destroy($sale);        
+        Sale::destroy($sale->id);      
+
         return redirect()->route('ims.sales.index') ;
     }
 

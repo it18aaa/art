@@ -41,6 +41,9 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
 
         Route::get('sales/index/complete', 'IMS\SaleController@indexComplete')
             ->name('sales.index.complete');
+
+        Route::get('sales/index/customer/{id}', 'IMS\SaleController@indexCustomer')
+            ->name('sales.index.customer');
     
     }); 
 });
