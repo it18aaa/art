@@ -7,6 +7,11 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
     
     Route::name('ims.')->group(function() {
 
+        Route::resource('artworks', 'IMS\ArtworkController');    
+        Route::resource('customers', 'IMS\CustomerController');        
+        Route::resource('artists', 'IMS\ArtistController');
+
+        // User routes
         Route::resource('users', 'IMS\UserController');
         Route::post('roleattach/{role_name}/{user_id}', 'IMS\RoleController@attach');
         Route::post('roledetach/{role_name}/{user_id}', 'IMS\RoleController@detach');
@@ -15,10 +20,7 @@ Route::middleware(['auth', 'requirerole:ims'])->group(function() {
         Route::put('users/{user}/password', 'IMS\UserController@updatePassword')
             ->name('users.password.update');
 
-        Route::resource('artworks', 'IMS\ArtworkController');    
-        Route::resource('customers', 'IMS\CustomerController');        
-        Route::resource('artists', 'IMS\ArtistController');
-
+        // Sales
         Route::resource('sales', 'IMS\SaleController');
 
         Route::post('sales/{sale}/{artwork}', 'IMS\SaleController@addArtwork')

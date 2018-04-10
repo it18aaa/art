@@ -33,12 +33,13 @@ class ArtworkController extends Controller
     public function show(Artwork $artwork)
     {
         //
-        echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+
+        return view('.IMS.artworks.view')
+            ->with('artwork', $artwork);
     }
 
     public function edit(Artwork $artwork)
-    {
-        //echo __CLASS__ . " " . __METHOD__ . " " . " not yet implemented!";
+    {        
         return view('IMS.artworks.create')
             ->with('artwork', $artwork);
 

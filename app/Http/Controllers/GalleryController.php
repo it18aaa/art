@@ -11,7 +11,7 @@ class GalleryController extends Controller
     {
         return view('gallery')
             ->with('artwork', 
-                Artwork::where('sold', 0)
+                Artwork::where('sale_id', null)
                     ->orderby('name','asc')
                         ->get()
             );

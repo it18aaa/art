@@ -174,7 +174,9 @@ class SaleController extends Controller
 
     public function complete($id, Request $request )
     {    
+
         $sale = Sale::find($id);
+
         $sale->fulfilled = true;
         $sale->notes = $request->notes;
         $sale->save();
@@ -182,11 +184,19 @@ class SaleController extends Controller
     }
 
     public function pay($id, Request $request)
-    {
-
-        // requires validation
+    {   
+        
 
        $sale  = Sale::find($id);
+
+       $artworks = Artwork::where('sale_id', $sale->id)->get();
+       foreach($artworks as $artwork)
+       {
+           $artwork->sold = true;
+           $artwork->save();
+       }
+
+
        $sale->paid = true;
        $sale->sale_price = $request->amount;
        $sale->notes = $request->notes;
