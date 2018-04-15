@@ -20,7 +20,7 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
             ->name('artworks.tag');
 
         Route::post('artworks/{text}/untag', 'CMS\ArtworkController@untag')
-            ->name('artworks.tag');
+            ->name('artworks.untag');
 
     });
 });

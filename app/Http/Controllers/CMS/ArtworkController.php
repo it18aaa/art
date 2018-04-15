@@ -24,7 +24,7 @@ class ArtworkController extends Controller
   
     public function edit(Artwork $artwork)
     {
-        //
+        return view('CMS.artworks.edit')->with('artwork', $artwork);
     }
    
     public function update(Request $request, Artwork $artwork)
