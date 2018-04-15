@@ -16,10 +16,10 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
         Route::put('artworks/{artwork}', 'CMS\ArtworkController@update')
             ->name('artworks.update');
 
-        Route::post('artworks/{text}/tag', 'CMS\ArtworkController@tag')
+        Route::post('artworks/{id}/tag', 'CMS\ArtworkController@tag')
             ->name('artworks.tag');
 
-        Route::post('artworks/{text}/untag', 'CMS\ArtworkController@untag')
+        Route::post('artworks/{id}/untag', 'CMS\ArtworkController@untag')
             ->name('artworks.untag');
 
     });

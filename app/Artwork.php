@@ -5,13 +5,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use \Conner\Tagging\Taggable;
+use Cviebrock\EloquentTaggable\Taggable;
 use App\Artist;
 
 
 class Artwork extends Model
 {    
-    use \Conner\Tagging\Taggable;
+    use Taggable;
 
     public function artist()
     {

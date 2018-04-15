@@ -42,7 +42,7 @@
 
                     </td>
                     <td>
-                        {{ count($artwork->tagNames()) }}
+                        
                     </td>
                     <td>
                         @if($artwork->sold)

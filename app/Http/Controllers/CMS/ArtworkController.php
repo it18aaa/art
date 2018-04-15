@@ -32,12 +32,12 @@ class ArtworkController extends Controller
         //
     }
 
-    public function tag($text)
+    public function tag($id, Request $request)
     {
 
     }
 
-    public function untag($text)
+    public function untag($id, Request $request)
     {
 
     }
