@@ -102,7 +102,7 @@
                 </tr>
                 @endforeach
 
-            </tboyd>
+            </tbody>
         </table>
     </div>
 

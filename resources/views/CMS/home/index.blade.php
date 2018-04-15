@@ -14,4 +14,7 @@
     <a href="/cms/artwork/descriptions">Update a description</a>
 
 
+    <a href="{{ route('cms.artworks.index') }}">Artwork</a>
+
+
 @endsection
