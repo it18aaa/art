@@ -11,37 +11,31 @@ class ArtworkController extends Controller
 
     public function index()
     {       
-            $artworks = Artwork::where('sold', false)->orderBy('name')->paginate(10);
+            $artworks = Artwork::where('sold', false)
+                ->orderBy('name')
+                ->paginate(10);
             
             return view('CMS.artworks.index')       
                 ->with(['artworks' => $artworks]);
     }
  
-    public function show(Artwork $artwork)
-    {
-        //
-    }
-  
+ 
     public function edit(Artwork $artwork)
     {
-        return view('CMS.artworks.edit')->with('artwork', $artwork);
-    }
-   
-    public function update(Request $request, Artwork $artwork)
-    {
-        //
-    }
+        return view('CMS.artworks.edit')
+            ->with('artwork', $artwork);
+    }  
 
     public function tag(Artwork $artwork, Request $request)
     {
         $artwork->tag($request->tag);       
-        return back();
+        return back()->with('info','tag added');
     }
 
     public function untag(Artwork $artwork, Request $request)
     {
         $artwork->untag($request->tag);
-        return back();
+        return back()->with('warning','tag removed');
     }
 
     public function addImage(Artwork $artwork, Request $request)    
@@ -54,7 +48,8 @@ class ArtworkController extends Controller
             }
         
         return back()
-            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0')
+            ->with('info','Image uploaded, you may need to refresh page to view');
     }
 
     public function description(Artwork $artwork, Request $request)
@@ -67,7 +62,7 @@ class ArtworkController extends Controller
         $artwork->description = $data['description'];
         $artwork->save();
 
-        return back();
+        return back()->with('info','Description updated');
 
     }
 

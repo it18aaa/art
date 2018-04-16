@@ -1,4 +1,4 @@
-@extends('layouts.gal')
+@extends('CMS.layout')
 
 @section('title', 'CMS Dashboard')
 
@@ -8,8 +8,9 @@
 @endsection
 
 @section('content')
+    @parent 
 
-    <h1> CMS Dashboard </h1>
+    <h1>Content Management</h1>
 
     <a href="/cms/artwork/descriptions">Update a description</a>
 

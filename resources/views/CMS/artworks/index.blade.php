@@ -1,7 +1,9 @@
-@extends('layouts.gal')
+@extends('CMS.layout')
 
 
 @section('content')
+    @parent
+    <h1>Artworks</h1>
 
     <div class="row">
         <table class="table table-striped table-hover table-sm" >
@@ -9,6 +11,7 @@
                 <th>ID</th>
                 <th>Name<br />& Artist</th>                              
                 <th>Tags</th>
+                <th>Description<br />(words)</th>
                 <th>Sold</th> 
                 <th>List<br />price</th>
                 <th>Price<br />public</th>
@@ -27,6 +30,9 @@
                     </td>
                     <td>
                         {{ $artwork->tags->count()  }}
+                    </td>
+                    <td>
+                        {{ str_word_count($artwork->description) }}
                     </td>
                     <td>
                         @if($artwork->sold)

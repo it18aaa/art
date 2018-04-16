@@ -1,26 +1,25 @@
 
-@extends('layouts.gal')
+@extends('CMS.layout')
 
 
 @section('content')
+    @parent
+
+<h1>{{$artwork->name }}</h1>
 
 <div class="row">
 
         <div class="col-sm-4">
             <div class="row">
                 <div class="col">
-
                     @include('CMS.artworks.partImagePicker')
-
                 </div>
             </div>
-
         </div>
 
 
 
         <div class="col-sm-4">
-
             <div class="row">
                 <div class="col">
                     @include('CMS.artworks.partDetails')
