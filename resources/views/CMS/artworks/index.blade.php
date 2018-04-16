@@ -3,8 +3,6 @@
 
 @section('content')
 
-
-
     <div class="row">
         <table class="table table-striped table-hover table-sm" >
             <thead class="table-sm">

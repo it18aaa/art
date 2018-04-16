@@ -32,13 +32,43 @@ class ArtworkController extends Controller
         //
     }
 
-    public function tag($id, Request $request)
+    public function tag(Artwork $artwork, Request $request)
     {
+        $artwork->tag($request->tag);       
+        return back();
+    }
+
+    public function untag(Artwork $artwork, Request $request)
+    {
+        $artwork->untag($request->tag);
+        return back();
+    }
+
+    public function addImage(Artwork $artwork, Request $request)    
+    {       
+        if($request->hasFile('image') && 
+            $request->file('image')->isValid() )
+            {
+                $filename = $artwork->id . ".jpg";
+                $request->file('image')->move(public_path("/img/artwork/"), $filename);
+            }
+        
+        return back()
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+    }
+
+    public function description(Artwork $artwork, Request $request)
+    {
+        
+        $data = $request->validate([
+            'description' => 'required'
+        ]);
+
+        $artwork->description = $data['description'];
+        $artwork->save();
+
+        return back();
 
     }
 
-    public function untag($id, Request $request)
-    {
-
-    }
 }

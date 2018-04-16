@@ -16,12 +16,18 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
         Route::put('artworks/{artwork}', 'CMS\ArtworkController@update')
             ->name('artworks.update');
 
-        Route::post('artworks/{id}/tag', 'CMS\ArtworkController@tag')
+        Route::put('artworks/{artwork}/tag', 'CMS\ArtworkController@tag')
             ->name('artworks.tag');
 
-        Route::post('artworks/{id}/untag', 'CMS\ArtworkController@untag')
+        Route::delete('artworks/{artwork}/tag', 'CMS\ArtworkController@untag')
             ->name('artworks.untag');
 
+        Route::put('artworks/{artwork}/image', 'CMS\ArtworkController@addImage')
+            ->name('artworks.addImage');
+            
+        Route::put('artworks/{artwork}/description', 'CMS\ArtworkController@description')
+            ->name('artworks.description');
+        
     });
 });
 
