@@ -16,7 +16,9 @@
             </thead>
             <tbody>
                 @foreach($artworks as $artwork)
-                <tr>
+                <tr 
+                    @include('CMS.artworks.partArtworkTooltip')
+                >
                     <td>{{ $artwork->id }}</td>
                     <td>
                         <strong>{{ $artwork->name }}</strong><br />
@@ -24,7 +26,7 @@
 
                     </td>
                     <td>
-                        
+                        {{ $artwork->tags->count()  }}
                     </td>
                     <td>
                         @if($artwork->sold)
@@ -70,3 +72,17 @@
 @endsection
 
 
+@section('scripts')
+
+<script>
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        placement: 'bottom',
+        html: true
+    }); 
+});
+</script>
+
+@endsection
