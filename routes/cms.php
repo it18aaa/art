@@ -7,6 +7,7 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
     
     Route::name('cms.')->group(function() {
 
+        // Artwork routes
         Route::get('artworks/index', 'CMS\ArtworkController@index')
             ->name('artworks.index');
 
@@ -23,8 +24,10 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
             ->name('artworks.addImage');
             
         Route::put('artworks/{artwork}/description', 'CMS\ArtworkController@description')
-            ->name('artworks.description');        
+            ->name('artworks.description');
 
+
+        // Artist Routes 
         Route::get('artists/index', 'CMS\ArtistController@index')
             ->name('artists.index');
 
@@ -37,6 +40,31 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
 
         Route::put('artists/{artist}/bio', 'CMS\ArtistController@bio')
             ->name('artists.bio');
+
+        // Event & News Routes
+        Route::get('events/index', 'CMS\EventController@index')
+            ->name('events.index');
+
+        Route::get('events/create', 'CMS\EventController@create')
+            ->name('events.create');
+
+        Route::get('events/{event}/edit', 'CMS\EventController@edit')
+            ->name('events.edit');
+
+        Route::put('events/{event}/tag', 'CMS\EventController@tag')
+            ->name('events.tag');
+
+        Route::delete('events/{event}/tag', 'CMS\EventController@untag')
+            ->name('events.untag');
+
+        Route::put('events/{event}/body', 'CMS\EventController@body')
+            ->name('events.body');
+
+        Route::put('events/{event}/heading', 'CMS\EventController@heading')
+            ->name('events.heading');
+
+        Route::put('events/{event}/image', 'CMS\EventController@addImage')
+            ->name('events.addImage');
 
 
     });

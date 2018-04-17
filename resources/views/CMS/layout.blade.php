@@ -16,7 +16,7 @@
         <a class="nav-link" href="{{ route('cms.artists.index') }}">Artists</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="{{ route('cms.events.index') }}">Events</a>
     </li>
 
 </ul>

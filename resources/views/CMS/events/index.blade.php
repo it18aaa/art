@@ -4,35 +4,36 @@
 @section('content')
     @parent
 
-<h1>Artists</h1>
+<h1>Events</h1>
 
-    <div class="row">
+
+<div class="row">
         <table class="table table-striped table-hover table-sm" >
             <thead class="table-sm">
                 <th>ID</th>
-                <th>Name</th>                                              
-                <th>Bio<br />(words)</th>  
-                <th>Works</th>                              
+                <th>Heading</th>                                              
+                <th>Body<br />(words)</th>  
+                <th>Live</th>                              
+                <th>Time & Date</th>
             </thead>
             <tbody>
-                @foreach($artists as $artist)
+                @foreach($events as $event)
                 <tr 
-                    @include('CMS.artists.partArtistTooltip')
+                    @include('CMS.events.partEventTooltip')
                 >
-                    <td>{{ $artist->id }}</td>
+                    <td>{{ $event->id }}</td>
                     <td>
-                        <strong>{{ $artist->firstname }} {{ $artist->lastname }}</strong><br />                      
+                        <strong>{{ $event->heading }}</strong><br />                      
                     </td>
                 
                     <td>
-                        {{ str_word_count($artist->bio) }}
+                        {{ str_word_count($event->body) }}
                     </td>
                     <td>
-                        {{ $artist->artworks->count() }}
+                        {{ $event->live }}
                     </td>
-
-                    
-                    <td><a href="{{ route('cms.artists.edit', $artist->id) }}"
+                                        
+                    <td><a href="{{ route('cms.events.edit', $event->id) }}"
                                 class="btn btn-secondary btn-sm " >                                              
                             <span class="fas fa-edit"></span> View & Edit
                     </a>
@@ -45,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col">
-            {{ $artists->links() }}
+            {{ $events->links() }}
         </div>
     </div>
 
