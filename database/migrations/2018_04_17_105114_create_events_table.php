@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('heading')->nullable()->default('heading');
             $table->string('body')->nullable()->default('body');
-            $table->boolean('live');
+            $table->boolean('live')->default(false);
             $table->timestamp('timedate');            
             $table->timestamps();
         });

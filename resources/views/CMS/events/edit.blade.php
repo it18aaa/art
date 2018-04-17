@@ -13,6 +13,14 @@
                 @include('CMS.events.partHeading')
             </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                @include('CMS.events.partToggleLive')
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col">
                 @include('CMS.events.partTags')

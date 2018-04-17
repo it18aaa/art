@@ -23,7 +23,7 @@ class EventController extends Controller
     {
         $event = Event::create();
         
-        return route('CMS.events.edit')->with('event', $event);
+        return redirect()->route('cms.events.edit', $event);
 
     }
 
@@ -86,7 +86,22 @@ class EventController extends Controller
         return back()
             ->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0')
             ->with('info','Image uploaded, you may need to refresh page to view');
+    
+    }
 
+    public function toggleLive(Event $event)    
+    {
+        if($event->live)
+        { 
+            $event->live = false;
+            $msg = "Event is offline";
+        } else {
+            $event->live = true;
+            $msg = "Event is active";
+        }
+        $event->save();
+
+        return back()->with('info', $msg);
     }
 
 }

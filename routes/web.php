@@ -5,6 +5,9 @@
 Route::get('/', 'GalleryController@splashPage');
 Route::get('/gallery', 'GalleryController@browsePage');
 
+Route::get('/gallery/{input}', 'GalleryController@browser')
+    ->name('gallery');
+
 Route::get('/artwork/{id}', 'GalleryController@artwork');
 Route::get('/about', 'GalleryController@about');
 

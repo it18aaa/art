@@ -66,6 +66,9 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
         Route::put('events/{event}/image', 'CMS\EventController@addImage')
             ->name('events.addImage');
 
+        Route::put('events/{event}/toggleLive', 'CMS\EventController@toggleLive')
+            ->name('events.toggleLive');
+
 
     });
 });
