@@ -3,6 +3,8 @@
 @section('title', 'Information Management System - Sales')
 
 @section('content')
+    @parent
+    
     <h3>{{$title}}</h3>
     <table class="table">
     <thead>

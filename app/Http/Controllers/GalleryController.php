@@ -9,12 +9,18 @@ class GalleryController extends Controller
 {
     public function browsePage() 
     {
-        return view('gallery')
+        /* old
+        return view('gallery.main')
             ->with('artwork', 
                 Artwork::where('sale_id', null)
                     ->orderby('name','asc')
                         ->get()
             );
+        */
+
+        return view('gallery.main')->with([
+            'featuredArtworks'=> Artwork::getFeatured(),
+        ]);
     }
 
     public function splashPage() 

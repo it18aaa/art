@@ -6,40 +6,81 @@
     @parent
 
     <h1>Information Management System</h1>
+    <hr/>
 
-    <div class="row">
-        <div class="col-sm-2">
-            <h4>Sales</h4>
-            <ul>
-            <li><a href="{{ route('ims.sales.index') }}">Management</a></li>    
-            <li><a href="{{ route('ims.sales.create') }}">New order</a></li>
-            </ul>
-        </div>
+        <div class = "row">
+            <div class="col-sm-4  text-center">    
+                <a href="{{ route('ims.sales.index') }}"
+                    class="btn btn-success btn-block btn"><br />
+                    <span class="fas fa-file-alt fa-2x"></span> <br />Sales<br />&nbsp;
+                </a>
+                <br />
+                <a href="{{ route('ims.sales.create') }}"
+                    class="btn btn-success btn-block btn"><br/>
+                    <span class="fas fa-plus fa-2x"></span>&nbsp;
+                    <span class="fas fa-file-alt fa-2x"></span> <br />New Sale Order<br />&nbsp;
+                </a>
+                <br />          
 
-        <div class="col-sm-23">
-            <h4>Artwork</h4>
-            <ul>
-                <li><a href="{{ route('ims.artworks.index') }}">Artwork</a></li>  
-                <li><a href="{{ route('ims.artworks.create') }}">Add Artwork</a></li>
-            </ul>
-        </div>        
-        <div class="col-sm-2">
-                <h3>Customers</h3>
-                <li><a href="{{ route('ims.customers.index') }}">Customer Index</a></li>                
-                <li><a href="{{ route('ims.customers.create') }}">Add a customer</a></li>                
-        </div>
-        <div class="col-sm-2">
-                <h3>Artists</h3>
-                <li><a href="{{ route('ims.artists.index') }}">Artists index</a></li>                
-                <li><a href="{{ route('ims.artists.index') }}">Add an artist</a></li>                
+                <a href="{{ route('ims.artists.index') }}"
+                    class="btn btn-danger btn-block btn"><br/>
+                    <span class="fas fa-users fa-2x"></span> <br />Artists<br />&nbsp;
+                </a>
+                <br />          
+
+            </div>
+
+            <div class="col-sm-4  text-center">
+            
+                    <a href="{{ route('ims.customers.index') }}" 
+                        class="btn btn-warning btn-block btn"><br/>
+                        <span class="fas fa-users fa-2x"></span> <br />Customers<br />&nbsp;
+                    </a>
+                
+                <br />
+
+                    <a href="{{ route('ims.customers.create') }}"
+                        class="btn btn-warning btn-block btn"><br/>
+                        <span class="fas fa-plus fa-2x"></span>&nbsp;
+                        <span class="fas fa-users fa-2x"></span> <br />New Customer<br />&nbsp;
+                    </a>
+                    <br />
+
+                    <a href="{{ route('ims.artists.create') }}"
+                    class="btn btn-danger btn-block btn"><br/>
+                    <span class="fas fa-plus fa-2x"></span>&nbsp;
+                    <span class="fas fa-users fa-2x"></span> <br />New Artist<br />&nbsp;
+                </a>
+                <br />       
+            
+            </div>
+
+            <div class="col-sm-4  text-center">
+
+                <a href="{{ route('ims.artworks.index') }}" 
+                    class="btn btn-primary btn-block btn"><br/>
+                    <span class="fas fa-paint-brush fa-2x"></span> <br />Artworks<br />&nbsp;
+                </a> 
+
+                <br />
+                <a href="{{ route('ims.artworks.create') }}" 
+                    class="btn btn-primary btn-block btn"><br/>
+                    <span class="fas fa-plus fa-2x"></span>&nbsp;
+                    <span class="fas fa-paint-brush fa-2x"></span> <br />New Artwork<br />&nbsp;
+                </a>                     
+                <br />
+                <a href="{{ route('ims.users.index') }}" 
+                    class="btn btn-secondary btn-block btn"><br/>
+                    <span class="fas fa-user fa-2x"></span> <br />Users<br />&nbsp;
+                </a>                     
+
+            </div>
+
+
         </div>
         
-        <div class="col-sm-2">
-                <h3>Users</h3>
-                <li><a href="{{ route('ims.users.index') }}">Users index</a></li>  
-                <li><a href="{{ route('ims.users.create') }}">Add a user</a></li>
-        </div>
-    </div>
+        
+
 @endsection
 
 @section('rightcontent')

@@ -23,6 +23,8 @@ class Artwork extends Model
         return $this->belongsTo('App\Sale');
     }
 
+    
+
     public function validateAndSave(Request $request) 
     {
         $data = $request->validate([            
@@ -50,5 +52,15 @@ class Artwork extends Model
         $this->save();
 
     }
+
+    public static function getFeatured($number=4)
+    {
+        // do we have enough tagged ?
+        $data = Artwork::withAnyTags('featured,feature,')->limit($number)->get();
+
+        return $data;
+    }
+    
+
 
 }
