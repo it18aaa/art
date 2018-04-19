@@ -17,8 +17,8 @@
                 ])
         
         !!}
-
-        {!! Form::submit('submit', ['class' => 'btn btn-primary',
+        
+        {!! Form::submit('Update', ['class' => 'btn btn-primary',
              'id' => 'bodySubmit',
              'disabled' => 'true',
              'style' => 'visibility: hidden'

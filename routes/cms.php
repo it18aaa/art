@@ -69,6 +69,8 @@ Route::middleware(['auth', 'requirerole:cms'])->group(function() {
         Route::put('events/{event}/toggleLive', 'CMS\EventController@toggleLive')
             ->name('events.toggleLive');
 
+        Route::put('events/{event}/dateTime', 'CMS\EventController@dateTime')
+            ->name('events.dateTime');
 
     });
 });

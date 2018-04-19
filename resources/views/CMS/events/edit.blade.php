@@ -4,7 +4,7 @@
 @section('content')
     @parent
 
-<h1>{{$event->heading }}</h1>
+<h1>Edit Event - {{$event->heading }}</h1>
 
 <div class="row">
     <div class="col-sm-3">
@@ -84,6 +84,23 @@
         submitButton.disabled = false;      
     }
 
+    function enableDateTimeSubmit() {
+        var submitButton = document.getElementById("dateTimeSubmit")
+        submitButton.style.visibility = 'visible';
+        submitButton.disabled = false;      
+    }    
+
+
+    
 </script>
+<script src="{{ asset('js/jquery.simple-dtpicker.js') }}"></script>
+<script type="text/javascript">
+		    $(function(){
+			    $('*[name=dateTime]').appendDtpicker();
+		    });
+
+</script>
+
+
 
 @endsection

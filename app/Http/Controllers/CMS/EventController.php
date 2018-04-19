@@ -23,7 +23,9 @@ class EventController extends Controller
     {
         $event = Event::create();
         
-        return redirect()->route('cms.events.edit', $event);
+        return redirect()   
+            ->route('cms.events.edit', $event)
+            ->with('info', 'Event created');
 
     }
 
@@ -102,6 +104,17 @@ class EventController extends Controller
         $event->save();
 
         return back()->with('info', $msg);
+    }
+
+    public function dateTime(Event $event, Request $request)
+    {
+
+        $event->timedate=$request->dateTime;
+        $event->save();
+
+        return back()->with('info', "Event date updated to $event->timedate");
+
+
     }
 
 }

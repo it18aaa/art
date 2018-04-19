@@ -13,10 +13,10 @@
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">      
         
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>        
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
+        <link href="{{ asset('css/jquery.simple-dtpicker.css') }}" rel="stylesheet">
         <link href="{{ asset('css/gal.css') }}" rel="stylesheet"> 
 
         
@@ -33,14 +33,7 @@
                 <div class="col-sm-2" >
                     <div class="col-sm-2" id="sticky-sidebar" >            
                         @section('sidebar')   
-                        @if( null !==  Auth::user())
-                                @if (Auth::user()->hasRole('cms'))                                    
-                                @endif
-                                @if (Auth::user()->hasRole('ims'))                                    
-                                    @include('partials.imsleft')                                    
-                                @endif                                    
-                            @else                                
-                            @endif
+
 
                         @show
                     </div>
@@ -89,6 +82,7 @@
 
 
         <script src="{{ asset('js/app.js') }}"></script>
+        
 
         @yield('scripts')
     </body>
