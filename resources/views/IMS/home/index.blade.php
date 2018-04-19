@@ -1,8 +1,10 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Dashboard')
+@section('title', 'Information Management System')
 
 @section('content')
+    @parent
+
     <h1>Information Management System</h1>
 
     <div class="row">
@@ -37,9 +39,6 @@
                 <li><a href="{{ route('ims.users.index') }}">Users index</a></li>  
                 <li><a href="{{ route('ims.users.create') }}">Add a user</a></li>
         </div>
-
-
-
     </div>
 @endsection
 

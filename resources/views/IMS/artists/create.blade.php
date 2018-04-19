@@ -1,9 +1,11 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Artists')
+@section('title', 'Information Management System - Artists - New')
 
 
 @section('content')
+    @parent
+
     @if(!isset($artist))
         <h1>Create Artist</h1>
         {!! Form::open(['route' => 'ims.artists.store'])   !!}

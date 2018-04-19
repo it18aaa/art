@@ -1,6 +1,7 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS User Management')
+@section('title', 'Information Management System - Users')
+    @parent
 
 
 

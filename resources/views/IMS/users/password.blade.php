@@ -1,8 +1,9 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-
+@section('title', 'Information Management System - Change Password')
 
 @section('content')
+    @parent
     
     <div class="row">
 

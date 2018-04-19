@@ -1,8 +1,9 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Sales')
+@section('title', 'Information Management System - Sales - New')
 
 @section('content')
+    @parent
 
 <h2>Sales Order</h2>
 

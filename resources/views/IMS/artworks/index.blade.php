@@ -1,10 +1,11 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Artwork')
+@section('title', 'Information Management System - Artworks')
 
 
 
 @section('content')
+    @parent
 
 <h1>Artworks</h1>
 

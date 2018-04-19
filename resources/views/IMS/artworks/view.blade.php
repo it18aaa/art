@@ -1,6 +1,10 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
+
+@section('title', 'Information Management System - Artwork - View')
 
 @section('content')
+    @parent
+
     <div class="row">
         <div class="col-sm-4">
             <div class="row">

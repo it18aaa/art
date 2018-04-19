@@ -1,8 +1,9 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Customers')
+@section('title', 'Information Management System - Customers - New')
 
 @section('content')
+    @parent
 
     @if(!isset($customer))
         <h1>Create Customer</h1>

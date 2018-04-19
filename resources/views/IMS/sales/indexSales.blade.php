@@ -1,6 +1,6 @@
-@extends('layouts.gal')
+@extends('IMS.layout')
 
-@section('title', 'IMS Sales')
+@section('title', 'Information Management System - Sales')
 
 @section('content')
     <h3>{{$title}}</h3>
