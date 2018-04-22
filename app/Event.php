@@ -8,7 +8,6 @@ use Cviebrock\EloquentTaggable\Taggable;
 
 class Event extends Model
 {
-    use Taggable;
-
+    use Taggable;    
     
 }
