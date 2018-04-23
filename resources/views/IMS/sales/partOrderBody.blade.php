@@ -29,7 +29,9 @@
                                     'method' => 'delete'
                                 ])  
                             !!}
-                                    <button type="submit" class="btn btn-default btn-sm">                            
+                                    <button type="submit" 
+                                        id="rem-art-{{$artwork->id}}"
+                                        class="btn btn-default btn-sm">                            
                                         <span class="fas fa-times"></span>
                                     </button>
                             {!! Form::close() !!}

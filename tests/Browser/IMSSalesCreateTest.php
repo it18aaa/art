@@ -4,7 +4,7 @@ namespace Tests\Browser;
 
 use Tests\DuskTestCase;
 use App\User;
-use App\Sales;
+use App\Sale;
 use App\Customer;
 use App\Artwork;
 use Laravel\Dusk\Browser;
@@ -18,8 +18,10 @@ class IMSSalesCreateTest extends DuskTestCase
             $browser->visit('/');
 
             $customer = factory(Customer::class)->create();                
-            $artworks = factory(Artwork::class, rand(3,8) )->create();
+            $artworks = factory(Artwork::class, rand(2,4) )->create();
             
+            
+
             $browser
                 ->loginAs(User::find(3))
                 ->visit(route('ims.sales.create'));                
@@ -38,24 +40,73 @@ class IMSSalesCreateTest extends DuskTestCase
                 ->assertSee($customer->lastname)
                 ->assertSee($customer->address1)                
                 ->assertSee($customer->title)
-                ->assertSee($customer->postcode);
+                ->assertSee($customer->postcode)
+                ->assertSee('Order created');
 
             $sale_id = $customer->sales()->latest()->first()->id;
 
-          
             foreach($artworks as $artwork) {
 
                 // calc position of our inserted artwork within the small art browser
-                $position = Artwork::orderBy('name')->where('name', '<=', $artwork->name)->count();
-                $artpage = floor( $position  / 10) + 1 ;
+                $position = Artwork::orderBy('name')
+                    ->where('sale_id',null)
+                    ->where('name', '<=', $artwork->name)
+                    ->count() - 1;
 
+                $page = floor( $position  / 10) + 1  ;
                 $browser
-                    ->visit(route('ims.sales.edit', $sale_id) . '?page='. $artpage)
-                    ->click('#add-art-'. $artwork->id)
-                    ;
-
+                    ->visit(route('ims.sales.edit', $sale_id) . '?page='. $page)
+                    ->click('#add-art-'. $artwork->id);
             }
 
+            // now remove them all
+            foreach($artworks as $artwork) {
+                $browser
+                    ->click('#rem-art-'.$artwork->id);
+            }
+
+            // and re-add them
+            foreach($artworks as $artwork) {
+
+                // calc position of our inserted artwork within the small art browser
+                $position = Artwork::orderBy('name')
+                    ->where('sale_id',null)
+                    ->where('name', '<=', $artwork->name)
+                    ->count() - 1;
+                $page = floor( $position  / 10) + 1  ;
+                $browser
+                    ->visit(route('ims.sales.edit', $sale_id) . '?page='. $page)
+                    ->click('#add-art-'. $artwork->id);
+            }
+
+            foreach($artworks as $artwork)
+            {
+                $browser
+                    ->assertSee($artwork->name)
+                    ->assertSee($artwork->id)
+                    ->assertSee(number_format($artwork->price, 2));
+            }
+
+            $browser
+                ->press('Pay')
+                ->assertSee('Customer has paid');
+
+            $browser
+                ->press('Complete order')
+                ->assertDontSee('Items have not been delivered to Customer')
+                ->assertSee('Complete');
+
+
+            // clean up
+
+            foreach($artworks as $artwork) {
+                Artwork::destroy($artwork->id);
+            }
+
+            Sale::destroy($sale_id);
+            Customer::destroy($customer->id);
+
+            
 
         });
     }
