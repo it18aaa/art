@@ -35,6 +35,6 @@
         </table>
     </div>
 
-    {{ $artworks->links() }}    
+    
 
 @endsection

@@ -4,57 +4,36 @@ namespace Tests\Unit;
 
 use App\Artist;
 use App\Artwork;
+use App\Customer;
+use App\Sale;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class ArtworkTest extends TestCase
 {
-    use DatabaseMigrations;
-    //use DatabaseTransactions;
-   
-    /** 
-     * tests Artwork::artist
-     *
-     * @return void
-     */
-    public function testArtworkReturnsArtist()
+    private $artwork;
+    private $artist;
+    private $customer;
+    private $sale;
+
+    public function testArtist()
     {
-        // create world...
-        
-        $artist = new Artist;
-        $artist->name = "Bingo Jefferson";
-        $artist->save();
 
-        // create two artworks
-        $artwork1 = new Artwork;
-        $artwork1->name = "Moon";
-        $artwork1->artist_id = $artist->id;
-        $artwork1->price = 999;
-        $artwork1->pricepublic = true;
-        $artwork1->sold = false;
-        $artwork1->save();
-
-        $artwork2 = new Artwork;
-        $artwork2->name = "Pluto";
-        $artwork2->artist_id = $artist->id;
-        $artwork2->price = 444;
-        $artwork2->pricepublic = true;
-        $artwork2->sold = false;
-        $artwork2->save();
-
-        // run the method
-        $rtnArtist1 = $artwork1->artist;
-        $rtnArtist2 = $artwork2->artist;
-
-        // returned artists name should be the same as above
-        $this->assertTrue($rtnArtist1->name == $artist->name);
-        $this->assertTrue($rtnArtist2->name == $artist->name);
     }
 
-    private $world;
+ 
     public function setUp()
     {
+        $this->artwork = factory(Artwork::class)->create();
+        $this->artist = factory(Artist::class)->create();
+        $this->customer = factory(Customer::class)->create();
+
+        $this->artwork->artist_id = $this->artist->id;
+        $this->artwork->sale_id = $this->sale->id;
+        $this->sale->customer_id = $this->customer->id;
+
+        $this->sale = new Sale();
         parent::setUp();
     }
 

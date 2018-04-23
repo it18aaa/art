@@ -32,11 +32,7 @@ class ArtistController extends Controller
 
     public function show(Artist $artist)
     {        
-        return view('artists.view')
-            ->with([
-                'artist' => $artist,
-                'artworks' => $artist->artworksPaginate(10)
-            ]);
+
     }
 
     public function edit(Artist $artist)
