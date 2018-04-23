@@ -12,7 +12,7 @@
                             'method' => 'post'
                         ])  
                     !!}
-                        <button type="submit" class="btn btn-default btn-sm">                            
+                        <button type="submit" id="add-art-{{$artwork->id}}" class="btn btn-default btn-sm">                            
                             <span class="fas fa-plus"></span>
                         </button>
                     {!! Form::close() !!}                        

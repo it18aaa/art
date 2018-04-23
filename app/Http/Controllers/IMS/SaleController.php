@@ -126,7 +126,7 @@ class SaleController extends Controller
     public function edit($id)
     {
 
-        $artworks = Artwork::where('sale_id', null)->orderBy('name')->paginate(8);
+        $artworks = Artwork::where('sale_id', null)->orderBy('name')->paginate(10);
         $sale = Sale::find($id);        
         
         return view('IMS.sales.create')

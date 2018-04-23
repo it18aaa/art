@@ -11,7 +11,7 @@ use Faker\Factory as Faker;
 
 class AboutTest extends DuskTestCase
 {
-    use DatabaseMigrations;
+    //use DatabaseMigrations;
 
     //  acceptance tests as per the user story acceptance criteria
 

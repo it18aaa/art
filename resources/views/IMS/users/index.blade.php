@@ -49,7 +49,9 @@
                             <form method="post" 
                                 action="roledetach/{{ $role->id }}/{{ $user->id }}">
                                 {{ csrf_field() }}
-                                <button type="submit" class="btn btn-role btn-success btn-sm">
+                                <button type="submit" 
+                                    id="roleDetach-{{$role->id}}-{{$user->id}}"
+                                    class="btn btn-role btn-success btn-sm">
                                     <span class="fas fa-lock-open"></span> 
                                 </button>
                                 <br />
@@ -58,18 +60,22 @@
                         <form method="post" 
                             action="roleattach/{{ $role->id }}/{{ $user->id }}">
                                 {{ csrf_field() }}
-                                <button type="submit" class="btn btn-role btn-outline-secondary btn-sm">
+                                <button type="submit" 
+                                    id="roleAttach-{{$role->id}}-{{$user->id}}"
+                                    class="btn btn-role btn-outline-secondary btn-sm">
                                     <span class="fas fa-lock"></span> 
                                 </button>
                             </form>
                         @endif
                         </td>
                     @endforeach
-                    <td><a class="btn btn-secondary btn-sm " href="users/{{ $user->id }}/edit">
+                    <td><a class="btn btn-secondary btn-sm " id="edit-{{$user->id}}" href="users/{{ $user->id }}/edit">
                             <span class="fas fa-edit"></span> Edit
                         </a>
                     </td>  
-                    <td><a class="btn btn-secondary btn-sm " href="users/{{ $user->id }}/password">
+                    <td><a class="btn btn-secondary btn-sm " 
+                            id="password-{{$user->id}}" 
+                            href="users/{{ $user->id }}/password">
                             <span class="fas fa-key"></span> Password
                         </a>
                     </td>  
@@ -81,7 +87,9 @@
                                 'method' => 'delete'
                                 ])  
                         !!}
-                            <button type="submit"  class="delete btn btn-danger btn-sm">
+                            <button type="submit"  
+                                id="delete-{{$user->id}}"
+                                class="delete btn btn-danger btn-sm">
                                 <span class="fas fa-trash"></span> Delete
                             </button>
                         {!! Form::close() !!}

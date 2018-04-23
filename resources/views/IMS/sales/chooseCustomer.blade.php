@@ -20,8 +20,8 @@
                 ])  
             !!}
             {!! Form::hidden('customer_id', $customer->id)  !!}
-            <button type="submit" class="btn btn-success">
-                <span class="fas fa-plus"></span>  &nbsp;&nbsp;Add
+            <button type="submit" class="btn btn-success" id="cust-{{$customer->id}}">
+                <span class="fas fa-plus"></span>  &nbsp;&nbsp;Create order
             </button>
             {!! Form::close()  !!}
         </td>

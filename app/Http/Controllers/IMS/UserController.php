@@ -96,7 +96,7 @@ class UserController extends Controller
         
         $user->password = Hash::make($data['password']);
         $user->save();
-        return redirect()->route('ims.users.index');
+        return redirect()->route('ims.users.index')->with('info', 'Password successfully changed for '. $user->name.'.');
 
     }
 }

@@ -34,8 +34,8 @@
             <td>{{ $sale->fulfilled }}</td>
 
             <td>
-                <a href="{{ route('ims.sales.edit', $sale->id) }}">
-                    <button type="submit" class="btn btn-success btn-sm">                            
+                <a href="{{ route('ims.sales.edit', $sale->id) }}" id="view-{{$sale->id}}">
+                    <button type="submit"  class="btn btn-success btn-sm">                            
                         <span class="fas fa-check"></span> View                                
                     </button>
                 </a>
