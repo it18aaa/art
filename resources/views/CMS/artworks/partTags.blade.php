@@ -19,7 +19,7 @@
                             </div>
                         
                             <div class="col text-right">
-                                <button type="submit" class="delete btn btn-secondary btn-sm">
+                                <button type="submit" id="deltag-{{$tag->name}}" class="delete btn btn-secondary btn-sm">
                                     <span class="fa fa-times"></span> 
                                 </button>
                             </div>
@@ -38,10 +38,10 @@
         
         <div class="row">
             <div class="col-sm-8">
-                {!! Form::text('tag', null, ['class' => 'form-control'] ) !!}
+                {!! Form::text('tag', null, ['class' => 'form-control', 'id' => 'newtagtext'] ) !!}
             </div>
             <div class="col text-right">
-                <button type="submit" class="delete btn btn-success btn-sm">
+                <button type="submit" id="addtag" class="delete btn btn-success btn-sm">
                     <span class="fas fa-plus"></span>
                 </button>
             </div>

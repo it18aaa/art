@@ -53,10 +53,10 @@ class Artwork extends Model
 
     }
 
-    public static function getFeatured($number=4)
+    public static function getFeatured()
     {
         // do we have enough tagged ?
-        $data = Artwork::withAnyTags('featured,feature,')->limit($number)->get();
+        $data = Artwork::withAnyTags('featured,feature,')->get();
 
         return $data;
     }

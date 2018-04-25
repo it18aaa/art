@@ -55,6 +55,7 @@
                     </td>                   
 
                     <td><a href="{{ route('cms.artworks.edit', $artwork->id) }}"
+                            id="view-{{$artwork->id}}"
                                 class="btn btn-secondary btn-sm " >                                              
                             <span class="fas fa-edit"></span> View & Edit
                     </a>

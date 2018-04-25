@@ -66,8 +66,16 @@ class ArtworkTest extends TestCase
     }
 
     public function testGetFeatured()
-    {
+    {        
+        $this->artwork->tag('featured');
+        $this->artwork->save();
+                 
+        $this->assertTrue( Artwork::getFeatured()->contains($this->artwork) );
 
+        $this->artwork->untag('featured');
+        $this->artwork->save();
+
+        $this->assertFalse( Artwork::getFeatured()->contains($this->artwork) );
     }
  
     public function setUp()
