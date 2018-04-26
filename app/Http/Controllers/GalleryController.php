@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 use App\Artwork;
+use App\Event;
 
 class GalleryController extends Controller
 {
@@ -19,8 +22,22 @@ class GalleryController extends Controller
         */
 
         return view('gallery.main')->with([
-            'featuredArtworks'=> Artwork::getFeatured(),
+            'featuredArtworks'=> Artwork::getFeatured()->slice(0,4),
+            'artworks' => Artwork::where([
+                            'sold' => false, 'sale_id' => null
+                        ])
+                        ->orderBy('name')
+                        ->paginate(10),
+            'events' => Event::withAnyTags('event')
+                        ->orderBy('timedate')
+                        ->get()
+                        ->slice(0,5),
+            'news' => Event::withAnyTags('news,feature')
+                        ->orderBy('timedate')
+                        ->get()
+                        ->slice(0,5)
         ]);
+
     }
 
     public function splashPage() 

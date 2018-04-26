@@ -9,8 +9,7 @@ use App\Http\Controllers\Controller;
 class ArtworkController extends Controller
 {
     public function index()
-    {
-        
+    {        
         return view('IMS.artworks.index')
             ->with('artworks', Artwork::paginate(15));
     }
@@ -21,8 +20,7 @@ class ArtworkController extends Controller
     }
     
     public function store(Request $request)
-    {
-        //dd($request);
+    {        
         $artwork = new Artwork();
         $artwork->validateAndSave($request);
 
@@ -31,9 +29,7 @@ class ArtworkController extends Controller
     }
     
     public function show(Artwork $artwork)
-    {
-        //
-
+    {     
         return view('.IMS.artworks.view')
             ->with('artwork', $artwork);
     }
@@ -42,8 +38,6 @@ class ArtworkController extends Controller
     {        
         return view('IMS.artworks.create')
             ->with('artwork', $artwork);
-
-
     }
 
     public function update(Request $request, Artwork $artwork)

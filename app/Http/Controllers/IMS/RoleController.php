@@ -20,8 +20,7 @@ class RoleController extends Controller
         if( !$user->hasRole($role->name) ) 
         {
             $user->roles()->attach($role);
-        }
-        //return redirect()->route('ims.users.index');
+        }        
         return redirect()->back();
     }
 
@@ -29,12 +28,10 @@ class RoleController extends Controller
     {
         $user = User::find($user_id);
         $role = Role::find($role_id);
-
         if( $user->hasRole($role->name) ) 
         {
             $user->roles()->detach($role);
-        }
-        //return redirect()->route('ims.users.index');
+        }        
         return redirect()->back();
     }
 }

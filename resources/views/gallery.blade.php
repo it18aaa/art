@@ -14,24 +14,23 @@
         <div class="row">            
             @foreach($artworks as $piece)            
                 <div class="col-sm">                
-                    <div class="piece " 
-                        style="border-bottom: 1px dashed #bbb; margin-bottom: 15px; ">                        
+                    <div class="piece " style="border-bottom: 1px dashed #bbb; margin-bottom: 15px; ">                        
                         <div>
-                            <a href="/artwork/{{ $piece->id}}" class="">                            
-                                <img src="img/artwork/{{ $piece->id }}.jpg" 
+                            <a href="/artwork/{{ $artwork->id}}" class="">                            
+                                <img src="img/artwork/{{ $artwork->id }}.jpg" 
                                      class="img-thumbnail art-shadow"/>                            
                             </a>
                         </div>
                         <div  style="padding-top: 10px;">
-                            <a href="/artwork/{{ $piece->id}}" class="">
-                                {{ $piece->name }}
+                            <a href="/artwork/{{ $artwork->id}}" class="">
+                                {{ $artwork->name }}
                             </a>
                         </div>       
                         <div >
-                            £{{ $piece->price }}
+                            £{{ $artwork->price }}
                         </div>                                         
                         <div >
-                            {{ $piece->artist->name }}
+                            {{ $artwork->artist->name }}
                         </div>
                         <div class="">                        
                         </div>                
@@ -40,4 +39,5 @@
             @endforeach
         </div>
     @endforeach
+
 @endsection
