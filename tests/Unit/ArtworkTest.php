@@ -17,6 +17,34 @@ class ArtworkTest extends TestCase
     private $artist;
     private $sale;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->artwork = factory(Artwork::class)->create();
+        $this->artist = factory(Artist::class)->create();
+        $this->customer = factory(Customer::class)->create();
+        $this->sale = new Sale();     
+        $this->sale->save();
+
+        $this->artwork->artist_id = $this->artist->id;
+        $this->artwork->sale_id = $this->sale->id;
+        $this->sale->customer_id = $this->customer->id;
+        $this->artwork->save();
+        $this->sale->save();
+        
+    }
+
+    public function tearDown()
+    {        
+        Sale::destroy($this->sale->id);
+        Customer::destroy($this->customer->id);
+        Artwork::destroy($this->artwork->id);
+        Artist::destroy($this->artist->id);
+
+        parent::tearDown();
+    }
+
 
     public function testArtist()
     {
@@ -78,34 +106,4 @@ class ArtworkTest extends TestCase
         $this->assertFalse( Artwork::getFeatured()->contains($this->artwork) );
     }
  
-    public function setUp()
-    {
-        parent::setUp();
-
-
-        $this->artwork = factory(Artwork::class)->create();
-        $this->artist = factory(Artist::class)->create();
-        $this->customer = factory(Customer::class)->create();
-        $this->sale = new Sale();     
-        $this->sale->save();
-
-        $this->artwork->artist_id = $this->artist->id;
-        $this->artwork->sale_id = $this->sale->id;
-        $this->sale->customer_id = $this->customer->id;
-        $this->artwork->save();
-        $this->sale->save();
-        
-    }
-
-    public function tearDown()
-    {        
-        Sale::destroy($this->sale->id);
-        Customer::destroy($this->customer->id);
-        Artwork::destroy($this->artwork->id);
-        Artist::destroy($this->artist->id);
-
-        parent::tearDown();
-    }
-
-
 }

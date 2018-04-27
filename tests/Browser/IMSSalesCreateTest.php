@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class IMSSalesCreateTest extends DuskTestCase
 {
-    public function testEditUser()
+    public function testCreateSale()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/');

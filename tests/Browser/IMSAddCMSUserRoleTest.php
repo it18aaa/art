@@ -9,11 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class IMSAddCMSUserRoleTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
+
     public function testAddCMSUserRole()
     {
         $this->browse(function (Browser $browser) {
